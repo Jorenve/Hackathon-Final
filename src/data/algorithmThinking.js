@@ -3,8 +3,257 @@
 // and ONLY prompts the entrepreneur once confidence exceeds the 85% threshold.
 
 export const ALGORITHM_THINKING_MODELS = {
+  STAGE_1_FIRST_HIRE: {
+    modelName: "Workforce & Payroll Prediction Model",
+    thresholdScore: 85.0,
+    baselineConfidence: 42.0,
+    advancedConfidence: 96.4,
+    confidenceFormula: "Confidence = (0.35 × Recurrence_Months) + (0.30 × Margin_Loss_Severity) + (0.20 × Subsidy_Certainty) + (0.15 × Employee_Retention_Risk)",
+
+    dataSourcesEvaluated: [
+      { name: "Billit Peppol Stream", records: "Interim invoices from NOWJOBS", baselineState: "1 single invoice (Isolated event)", advancedState: "4 consecutive monthly invoices (€5,280/mo)", signalStrength: "High" },
+      { name: "KBC Business PRO Account", records: "Recurring debit analysis", baselineState: "Initial trial payment", advancedState: "Consistent debit pattern confirmed", signalStrength: "Strong" },
+      { name: "Joint Committee (PC 302)", records: "Horeca sector minimum wage scales", baselineState: "General sector index", advancedState: "Sarah's job qualification matched to Scale III", signalStrength: "Statutory" },
+      { name: "Vlaamse Overheid VLAIO", records: "Doelgroepvermindering policy", baselineState: "Subsidy fund open", advancedState: "€3,100 first-hire entitlement pre-verified", signalStrength: "Active Subsidy" }
+    ],
+
+    evidenceSignals: [
+      {
+        id: "sig_1",
+        label: "Persistent Interim Usage",
+        weight: "35%",
+        baseline: { active: false, status: "Pending (Only 1 invoice)", points: 8 },
+        advanced: { active: true, status: "Verified (4 months continuous)", points: 35 },
+        detail: "Single interim invoice could be temporary sick-leave replacement. 4 months confirms permanent staffing need."
+      },
+      {
+        id: "sig_2",
+        label: "Gross Margin Leakage > €1,000/mo",
+        weight: "30%",
+        baseline: { active: false, status: "Under Evaluation (€240 leak)", points: 10 },
+        advanced: { active: true, status: "Exceeded (€1,420/mo overpayment)", points: 30 },
+        detail: "Current 2.2x interim markup creates €17,040 annual profit drain compared to PC 302 direct hire."
+      },
+      {
+        id: "sig_3",
+        label: "Flemish First-Hire Subsidy Qualification",
+        weight: "20%",
+        baseline: { active: true, status: "Preliminary Match", points: 14 },
+        advanced: { active: true, status: "100% Pre-Validated with VLAIO", points: 20 },
+        detail: "Confirms entity BE 0849.201.884 has 0 prior ONSS employees, guaranteeing €3,100 grant exemption."
+      },
+      {
+        id: "sig_4",
+        label: "Legal Labor Liability Exposure",
+        weight: "15%",
+        baseline: { active: false, status: "Low Risk (Covered by agency)", points: 10 },
+        advanced: { active: true, status: "Urgent (Uninsured Transition Risk)", points: 15 },
+        detail: "Direct hiring without immediate Day-1 Occupational Accident Insurance breaches Belgian Labor Code Art. 49."
+      }
+    ],
+
+    predictionLogic: [
+      {
+        step: 1,
+        title: "Interim Margin Leakage Detection",
+        formula: "Interim Rate (€33.00/hr) vs. Paritair Comité 302 Direct Wage (€16.56/hr + 31.5% RSZ)",
+        finding: "Lucas is paying a 2.2x markup to NOWJOBS (€5,280/mo vs €3,860/mo direct employment cost)."
+      },
+      {
+        step: 2,
+        title: "Cashflow Drag & Statutory Risk Analysis",
+        formula: "Uninsured commute liability exposure + zero retention guarantee",
+        finding: "Operating without statutory Occupational Accident policy exposes founder to criminal fines under Art. 49 Belgian Labor Code."
+      },
+      {
+        step: 3,
+        title: "Flemish Subsidy Arbitrage",
+        formula: "VLAIO first hire social security exemption (€3,100 across 4 quarters)",
+        finding: "Reduces net quarterly social contributions to €0 for the first 3 months of direct employment."
+      },
+      {
+        step: 4,
+        title: "Optimal Prescriptive Bundle",
+        formula: "ArgMax [Net Savings + Statutory Compliance - Founder Admin Time]",
+        recommendation: "Auto-bind Occupational Accident Insurance + Register Liantis Sociaal Secretariaat + Transmit Dimona IN via eBox + Claim €3,100 VLAIO grant in 1 click."
+      }
+    ],
+
+    scenariosCompared: [
+      { option: "Do Nothing (Keep Interim Agency)", cost12Months: "€63,360", riskScore: "High (No Staff Retention)", kbcMargin: "€0" },
+      { option: "Traditional Manual Onboarding", cost12Months: "€46,320 + 28 hours admin", riskScore: "Medium (Late Dimona fines)", kbcMargin: "Low" },
+      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€43,220 (-€17,040 savings)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€1,820 (Accident policy + account)" }
+    ]
+  },
+
+  STAGE_2_OFFICE_SPACE: {
+    modelName: "Commercial Space & Lease Underwriting Model",
+    thresholdScore: 85.0,
+    baselineConfidence: 44.0,
+    advancedConfidence: 96.8,
+    confidenceFormula: "Confidence = (0.35 × DSCR_Coverage) + (0.30 × Lease_Contract_Certainty) + (0.20 × EPC_Compliance) + (0.15 × Tenant_Liability_Fit)",
+
+    dataSourcesEvaluated: [
+      { name: "KBC Business Account Telemetry", records: "Operating cashflow run-rate", baselineState: "€28,500/mo operating inflow (Normal)", advancedState: "€36,400/mo sustained inflow (2.4x DSCR)", signalStrength: "Direct Banking Core" },
+      { name: "Kate Document Scanner", records: "Commercial lease deed extraction", baselineState: "Preliminary property inquiry", advancedState: "Signed draft lease for Dok Noord 4B (320m²)", signalStrength: "Document Optical OCR" },
+      { name: "De Immowinkel Real Estate API", records: "Commercial EPC rating & inspection", baselineState: "Standard zoning registry", advancedState: "EPC Label B verified compliant", signalStrength: "Ecosystem Partner" },
+      { name: "Flemish Commercial Tenancy Act", records: "Statutory deposit & tenant liability", baselineState: "Statutory review", advancedState: "3-month deposit (€8,400) + Fire insurance required", signalStrength: "Regulatory Requirement" }
+    ],
+
+    evidenceSignals: [
+      {
+        id: "sig_1",
+        label: "Cashflow Debt Service Coverage > 2.0x",
+        weight: "35%",
+        baseline: { active: false, status: "Under Evaluation (1.4x DSCR)", points: 12 },
+        advanced: { active: true, status: "Surpassed (2.4x Coverage on €2.8k Rent)", points: 35 },
+        detail: "Sustained €36,400 monthly inflow guarantees safe service of rent and €85,000 equipment loan."
+      },
+      {
+        id: "sig_2",
+        label: "Dok Noord 9-Year Lease Draft Verified",
+        weight: "30%",
+        baseline: { active: false, status: "Searching Premises (Immoscoop)", points: 10 },
+        advanced: { active: true, status: "Commercial Lease Draft OCR Verified", points: 30 },
+        detail: "Extracted landlord IBAN, rent amount (€2,800/mo), and €8,400 deposit clause from PDF."
+      },
+      {
+        id: "sig_3",
+        label: "EPC Label B & Food Hygiene Compliance",
+        weight: "20%",
+        baseline: { active: true, status: "Preliminary Building Audit", points: 14 },
+        advanced: { active: true, status: "De Immowinkel EPC B Confirmed", points: 20 },
+        detail: "Premises meets Flemish energy efficiency standard for food preparation kitchens."
+      },
+      {
+        id: "sig_4",
+        label: "Mandatory Tenant Fire & Water Liability",
+        weight: "15%",
+        baseline: { active: false, status: "Uninsured Commercial Lease", points: 8 },
+        advanced: { active: true, status: "KBC Office & Building Policy Pre-Bound", points: 15 },
+        detail: "Belgian commercial lease law mandates tenant damage coverage before key handover."
+      }
+    ],
+
+    predictionLogic: [
+      {
+        step: 1,
+        title: "Cashflow Solvency & Deposit Arbitrage",
+        formula: "Available Liquidity (€48,200) vs. Required Cash Deposit (€8,400)",
+        finding: "Freezing €8,400 in cash deprives Lucas of inventory purchasing power. Replacing with KBC Rental Guarantee in Escrow unlocks 100% liquidity."
+      },
+      {
+        step: 2,
+        title: "Equipment Fit-Out ROI Analysis",
+        formula: "€85,000 Fit-Out Loan @ 3.65% (€1,550/mo) vs. Extra Catering Capacity (+€7,200/mo gross margin)",
+        finding: "Adding commercial combi-steamers and walk-in cold storage yields +€5,650/month in net profit after loan service."
+      },
+      {
+        step: 3,
+        title: "Statutory Property Compliance",
+        formula: "Handelshuurwet requirements: Fire & Water Tenant Liability + EPC Certification",
+        finding: "Bundling KBC Office and Building Insurance + De Immowinkel inspection fulfills 100% of landlord legal conditions."
+      },
+      {
+        step: 4,
+        title: "Optimal Prescriptive Bundle",
+        formula: "ArgMax [Working Capital Preservation + Production Scale - Founder Friction]",
+        recommendation: "Issue €8,400 Digital Rental Guarantee + Disburse €85,000 Fit-out Loan + Bind Office & Building Insurance in 1 click."
+      }
+    ],
+
+    scenariosCompared: [
+      { option: "Traditional Manual Bank Deposit & Paperwork", cost12Months: "€8,400 locked cash + 6 weeks delay", riskScore: "High (Lost Summer Contracts)", kbcMargin: "€0" },
+      { option: "Unsecured Personal Loan & External Broker", cost12Months: "€85k @ 7.8% (€6,630/yr interest)", riskScore: "High Personal Asset Exposure", kbcMargin: "Low" },
+      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€85k @ 3.65% (-€7,200/mo net gain)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€14,600 (Loan interest + property policy)" }
+    ]
+  },
+
+  STAGE_3_FLEET_SCALING: {
+    modelName: "Fleet Electrification & TCO Prediction Model",
+    thresholdScore: 85.0,
+    baselineConfidence: 46.0,
+    advancedConfidence: 97.4,
+    confidenceFormula: "Confidence = (0.40 × Courier_Outsource_Bleed) + (0.30 × EV_TCO_Advantage) + (0.20 × Flemish_Green_Grants) + (0.10 × Depot_Grid_Fit)",
+
+    dataSourcesEvaluated: [
+      { name: "Peppol Logistics Invoices", records: "Third-party courier bills (DPD Fresh)", baselineState: "Monthly courier €2,800 (Acceptable)", advancedState: "Surged to €6,400/mo (Margin bleed)", signalStrength: "Direct Peppol" },
+      { name: "KBC Autolease Residual Value Matrix", records: "Ford e-Transit 48-month TCO benchmark", baselineState: "Standard commercial lease rates", advancedState: "Bulk corporate fleet discount pre-cleared", signalStrength: "Proprietary KBC" },
+      { name: "Vlaams Klimaatfonds API", records: "Zero-emission commercial vehicle grant", baselineState: "Subsidy fund open", advancedState: "3 × €4,200 = €12,600 grant pre-qualified", signalStrength: "Statutory Subsidy" },
+      { name: "Dok Noord Depot Electrical Meter", records: "Smart meter telemetry via MoveSmart", baselineState: "32A Grid connection", advancedState: "22kW smart depot charger approved", signalStrength: "IoT Telemetry" }
+    ],
+
+    evidenceSignals: [
+      {
+        id: "sig_1",
+        label: "Outsourced Courier Spend > €5,000/mo",
+        weight: "40%",
+        baseline: { active: false, status: "Under Threshold (€2,800/mo)", points: 15 },
+        advanced: { active: true, status: "Critical Margin Drain (€6,400/mo)", points: 40 },
+        detail: "Outsourcing 45 daily drops creates €76,800 annual courier bleed compared to in-house fleet."
+      },
+      {
+        id: "sig_2",
+        label: "Electric TCO Arbitrage vs. Diesel Courier",
+        weight: "30%",
+        baseline: { active: false, status: "TCO Breakeven", points: 15 },
+        advanced: { active: true, status: "+€2,450/mo Net Cash Savings", points: 30 },
+        detail: "Off-peak depot charging at €0.14/kWh eliminates diesel fuel surcharges and Ghent LEZ fines."
+      },
+      {
+        id: "sig_3",
+        label: "Flemish Clean Power Grants (€12,600)",
+        weight: "20%",
+        baseline: { active: true, status: "Preliminary Eligibility", points: 10 },
+        advanced: { active: true, status: "100% Pre-Validated with Klimaatfonds", points: 20 },
+        detail: "Confirms €4,200 per commercial EV van, directly credited against vehicle acquisition cost."
+      },
+      {
+        id: "sig_4",
+        label: "Dok Noord 22kW Charging Feasibility",
+        weight: "10%",
+        baseline: { active: false, status: "Grid Inquiry Sent", points: 6 },
+        advanced: { active: true, status: "Luminus MoveSmart Hardware Pre-Approved", points: 10 },
+        detail: "Luminus MoveSmart confirmed overnight depot charging for 3 e-Transits without sub-station upgrade."
+      }
+    ],
+
+    predictionLogic: [
+      {
+        step: 1,
+        title: "Logistics Outsource Bleed Detection",
+        formula: "45 drops/day × €4.74/drop = €6,400/month outsourced courier fees",
+        finding: "Ghent Craft Foods is surrendering 7.5% of gross sales to third-party couriers with zero SLA control."
+      },
+      {
+        step: 2,
+        title: "Electric Fleet TCO Arbitrage",
+        formula: "Lease cost (3 × €720/mo) + Depot electricity (€340/mo) vs. Courier bill (€6,400/mo)",
+        finding: "In-housing with 3 refrigerated e-Transits generates +€3,900/mo in gross savings and +€2,450/mo net profit."
+      },
+      {
+        step: 3,
+        title: "Flemish Green Subsidies & LEZ Exemption",
+        formula: "3 × €4,200 Clean Power Grant + 100% Flemish LEZ exemption in Ghent, Antwerp, Brussels",
+        finding: "Secures €12,600 in instant cash grants and eliminates all future low-emission penalties."
+      },
+      {
+        step: 4,
+        title: "Optimal Prescriptive Bundle",
+        formula: "ArgMax [Net Monthly Savings + Fleet Autonomy + Green Subsidy Capture]",
+        recommendation: "Pre-fund €160k KBC Car Loan Plus + Install Luminus MoveSmart charger + Bind Fleet Insurance in 1 click."
+      }
+    ],
+
+    scenariosCompared: [
+      { option: "Do Nothing (Keep Outsourcing Couriers)", cost12Months: "€76,800/yr courier bleed + LEZ surcharges", riskScore: "High (Delivery Delays)", kbcMargin: "€0" },
+      { option: "Buy Second-Hand Diesel Vans (Cash)", cost12Months: "€45,000 cash drain + €14,000 diesel + LEZ fines", riskScore: "Severe Regulatory Risk", kbcMargin: "Low" },
+      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€0 upfront cash (-€29,400/yr net savings)", riskScore: "Zero (KBC Autolease backed)", kbcMargin: "€24,800 (Asset lease + fleet policy)" }
+    ]
+  },
+
   STARTER: {
-    modelName: "Kate SME Payroll & Workforce Optimization Engine v3.4",
+    modelName: "Workforce & Payroll Prediction Model",
     thresholdScore: 85.0,
     baselineConfidence: 42.0,
     advancedConfidence: 96.4,
@@ -87,7 +336,7 @@ export const ALGORITHM_THINKING_MODELS = {
   },
 
   PROFITABLE_GROWTH: {
-    modelName: "Kate Corporate Fleet Electrification & Asset Capacity Planner v4.1",
+    modelName: "Fleet & Asset Capacity Prediction Model",
     thresholdScore: 85.0,
     baselineConfidence: 48.0,
     advancedConfidence: 97.2,
@@ -170,7 +419,7 @@ export const ALGORITHM_THINKING_MODELS = {
   },
 
   DISTRESSED_DOWNTURN: {
-    modelName: "Kate Early Liquidity Stress & Default Prevention Protocol v5.0",
+    modelName: "Cash Flow & Liquidity Stress Prediction Model",
     thresholdScore: 85.0,
     baselineConfidence: 52.0,
     advancedConfidence: 98.6,
@@ -253,7 +502,7 @@ export const ALGORITHM_THINKING_MODELS = {
   },
 
   ENTERPRISE_MA: {
-    modelName: "Kate Corporate M&A Synergy & Accretive Buyout Valuator v6.2",
+    modelName: "M&A Synergy & Buyout Valuation Model",
     thresholdScore: 85.0,
     baselineConfidence: 39.0,
     advancedConfidence: 95.8,
@@ -335,3 +584,9 @@ export const ALGORITHM_THINKING_MODELS = {
     ]
   }
 };
+
+// Aliases for the 3-Chapter Lifecycle Story
+ALGORITHM_THINKING_MODELS.STARTER = ALGORITHM_THINKING_MODELS.STAGE_1_FIRST_HIRE;
+ALGORITHM_THINKING_MODELS.PROFITABLE_GROWTH = ALGORITHM_THINKING_MODELS.STAGE_2_OFFICE_SPACE;
+ALGORITHM_THINKING_MODELS.DISTRESSED_DOWNTURN = ALGORITHM_THINKING_MODELS.STAGE_2_OFFICE_SPACE;
+ALGORITHM_THINKING_MODELS.ENTERPRISE_MA = ALGORITHM_THINKING_MODELS.STAGE_3_FLEET_SCALING;

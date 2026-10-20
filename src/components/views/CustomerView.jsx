@@ -52,10 +52,10 @@ export default function CustomerView({
   setExecutionState,
   onExecuteTrigger
 }) {
-  const company = COMPANIES[selectedCompanyKey];
+  const company = COMPANIES[selectedCompanyKey] || COMPANIES.STAGE_1_FIRST_HIRE;
   const predicted = company.predictedEvent;
   const normal = company.normalState;
-  const thinking = ALGORITHM_THINKING_MODELS[selectedCompanyKey] || ALGORITHM_THINKING_MODELS.STARTER;
+  const thinking = ALGORITHM_THINKING_MODELS[selectedCompanyKey] || ALGORITHM_THINKING_MODELS.STAGE_1_FIRST_HIRE || ALGORITHM_THINKING_MODELS.STARTER;
 
   const currentConfidence = isTimeAdvanced ? thinking.advancedConfidence : thinking.baselineConfidence;
   const hasCrossedThreshold = currentConfidence >= thinking.thresholdScore;
@@ -157,35 +157,35 @@ export default function CustomerView({
           {/* 1. SLEEK KATE SILENT OBSERVATION BANNER (CLIENT-APPROPRIATE) */}
           <div className="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 p-5 rounded-3xl border border-slate-800 shadow-xl space-y-3">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 min-w-0">
                 <div className="w-10 h-10 rounded-2xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-300 flex-shrink-0">
                   <Sparkles className="w-5 h-5 text-kbc-sky" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="flex items-center space-x-2">
-                    <span className="text-xs font-bold text-kbc-sky uppercase tracking-wider">
+                    <span className="text-xs font-bold text-kbc-sky uppercase tracking-wider whitespace-nowrap">
                       Kate Proactive Intelligence
                     </span>
-                    <span className="text-slate-500 text-xs font-mono">• Continuous Background Telemetry</span>
+                    <span className="text-slate-500 text-xs font-mono whitespace-nowrap hidden sm:inline">• Continuous Background Telemetry</span>
                   </div>
-                  <h3 className="text-base font-bold text-white mt-0.5">
-                    Silent Monitoring Active • No Bottlenecks or Urgent Actions Detected
+                  <h3 className="text-base font-bold text-white mt-0.5 truncate">
+                    Silent Monitoring Active • No Bottlenecks Detected
                   </h3>
                 </div>
               </div>
 
               {/* Status Pill & Telemetry Toggle */}
-              <div className="flex items-center space-x-2">
-                <div className="px-3 py-1 rounded-full bg-slate-950 border border-amber-500/40 text-amber-300 text-xs font-semibold flex items-center space-x-2">
-                  <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                  <span>Confidence: {currentConfidence.toFixed(0)}% (Below 85% Prompt Threshold)</span>
+              <div className="flex items-center space-x-2 flex-shrink-0">
+                <div className="px-3 py-1.5 rounded-full bg-slate-950 border border-amber-500/40 text-amber-300 text-xs font-semibold flex items-center space-x-2 whitespace-nowrap">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span>
+                  <span>Confidence: {currentConfidence.toFixed(0)}% (Below 85% Threshold)</span>
                 </div>
 
                 <button
                   onClick={() => setShowAlgorithmDetails(!showAlgorithmDetails)}
-                  className="px-3 py-1 rounded-xl bg-slate-800 hover:bg-slate-750 text-cyan-300 text-xs font-bold border border-slate-700 transition-all flex items-center space-x-1"
+                  className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-cyan-300 text-xs font-bold border border-slate-700 transition-all flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0"
                 >
-                  <Eye className="w-3.5 h-3.5" />
+                  <Eye className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>{showAlgorithmDetails ? 'Hide Signals' : 'Inspect Signals'}</span>
                 </button>
               </div>
@@ -317,17 +317,17 @@ export default function CustomerView({
             <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
             
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-              <div className="flex items-start space-x-3.5">
+              <div className="flex items-start space-x-3.5 min-w-0">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg flex-shrink-0 text-slate-950">
-                  <Sparkles className="w-6 h-6" />
+                  <Sparkles className="w-6 h-6 flex-shrink-0" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="flex items-center space-x-2">
-                    <span className="text-xs font-black text-emerald-400 uppercase tracking-wider flex items-center space-x-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                      <span>Action Threshold Reached (96.4% ≥ 85.0%)</span>
+                    <span className="text-xs font-black text-emerald-400 uppercase tracking-wider flex items-center space-x-1.5 whitespace-nowrap">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping flex-shrink-0"></span>
+                      <span>Action Threshold Reached ({currentConfidence.toFixed(1)}% ≥ 85.0%)</span>
                     </span>
-                    <span className="text-slate-400 text-xs font-mono">• {predicted.date}</span>
+                    <span className="text-slate-400 text-xs font-mono whitespace-nowrap">• {predicted.date}</span>
                   </div>
                   <h3 className="text-lg sm:text-xl font-black text-white mt-1 leading-snug">
                     {predicted.kateCard.title}
@@ -338,13 +338,13 @@ export default function CustomerView({
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2 self-start">
+              <div className="flex items-center space-x-2 self-start flex-shrink-0">
                 <button
                   onClick={() => setIsTimeAdvanced(false)}
-                  className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all flex items-center space-x-1.5 whitespace-nowrap"
+                  className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 text-xs font-semibold transition-all flex items-center space-x-1.5 whitespace-nowrap"
                   title="Rewind to see silent mode below 85% threshold"
                 >
-                  <RotateCcw className="w-3.5 h-3.5" />
+                  <RotateCcw className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>Rewind to Baseline</span>
                 </button>
 
@@ -352,8 +352,8 @@ export default function CustomerView({
                   onClick={() => setShowAlgorithmDetails(!showAlgorithmDetails)}
                   className="px-3.5 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap"
                 >
-                  <FileSearch className="w-3.5 h-3.5" />
-                  <span>{showAlgorithmDetails ? 'Hide Formula' : 'Inspect Deductions'}</span>
+                  <FileSearch className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{showAlgorithmDetails ? 'Hide Details' : 'Inspect Details'}</span>
                 </button>
               </div>
             </div>
@@ -433,13 +433,13 @@ export default function CustomerView({
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                <div className="flex items-center space-x-2 text-kbc-sky font-extrabold text-sm">
-                  <Zap className="w-5 h-5 fill-kbc-sky" />
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800 gap-2 flex-wrap">
+                <div className="flex items-center space-x-2 text-kbc-sky font-extrabold text-sm whitespace-nowrap">
+                  <Zap className="w-5 h-5 fill-kbc-sky flex-shrink-0" />
                   <span>KBC OneClick Syndicate Execution</span>
                 </div>
-                <span className="text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full flex items-center space-x-1.5">
-                  <Landmark className="w-3.5 h-3.5" />
+                <span className="text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full flex items-center space-x-1.5 whitespace-nowrap">
+                  <Landmark className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>Pre-Underwritten Core Banking</span>
                 </span>
               </div>
@@ -715,7 +715,7 @@ export default function CustomerView({
                   <Sparkles className="w-4 h-4 text-slate-950" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">Kate AI Assistant</h3>
+                  <h3 className="text-sm font-bold text-white">Kate Assistant</h3>
                   <p className="text-xs text-cyan-300">Syndicate Transparency Query</p>
                 </div>
               </div>

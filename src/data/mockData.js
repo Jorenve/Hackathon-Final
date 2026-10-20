@@ -1,15 +1,18 @@
 // KBC OneClick Syndicate: Complete Multi-Company & Lifecycle Scenario Engine
 // Covers:
-// 1. Starter SME (De Gentse Proeverij) -> First Employee Milestone
+// 1. Starter SME (Ghent Craft Foods BV) -> First Employee Milestone
 // 2. Profitable Mid-Market (Vanderbauwhede Logistics) -> Green Fleet & Warehouse Scaler
 // 3. Distressed Mid-Market (Vanderbauwhede Crisis) -> Cashflow Cliff & Factoring Rescue
 // 4. Large Enterprise (Flanders Biotech Group) -> M&A Acquisition of Competitor
 
 export const COMPANIES = {
-  STARTER: {
-    id: "STARTER",
-    name: "De Gentse Proeverij",
-    founder: "Lucas Van de Velde",
+  STAGE_1_FIRST_HIRE: {
+    id: "STAGE_1_FIRST_HIRE",
+    chapterNumber: 1,
+    badge: "Small SME (1-2 FTEs)",
+    name: "Ghent Craft Foods BV",
+    tradingName: "De Gentse Proeverij",
+    founder: "Lucas De Clercq",
     type: "Starting SME / Micro-Enterprise",
     sector: "Artisan Food & Event Catering",
     location: "Korenmarkt 14, 9000 Gent",
@@ -19,9 +22,9 @@ export const COMPANIES = {
     healthStatus: "Growing Rapidly",
     healthBadge: "Seed Growth",
     badgeColor: "bg-amber-950 text-amber-300 border-amber-700",
-    primaryAccount: "BE42 7351 9904 4421 (KBC Business PRO)",
-    balance: "€14,820.50",
-    creditScore: "A (KBC AI Risk Assessment)",
+    primaryAccount: "BE71 7360 4912 8820 (KBC Business PRO)",
+    balance: "€21,450.00",
+    creditScore: "A (KBC Credit Risk Assessment)",
     relationshipManager: "Anouk De Smet (KBC Kouter Gent)",
 
     normalState: {
@@ -158,6 +161,286 @@ export const COMPANIES = {
           dataShared: "Dimona electronic declaration form, ONSS employer number",
           canSwap: false,
           note: "Mandatory Belgian Federal Employment Authority"
+        }
+      ]
+    }
+  },
+
+  STAGE_2_OFFICE_SPACE: {
+    id: "STAGE_2_OFFICE_SPACE",
+    chapterNumber: 2,
+    badge: "Middle Growth (3-10 FTEs)",
+    name: "Ghent Craft Foods BV",
+    tradingName: "De Gentse Proeverij",
+    founder: "Lucas De Clercq",
+    type: "Growing SME (Commercial Expansion)",
+    sector: "Artisan Food Production & Commercial Catering",
+    location: "Dok Noord 4B, 9000 Gent",
+    headcount: "Founder + 4 Full-Time Employees",
+    revenue: "€436,000 / year",
+    ebitda: "€78,000 / year (17.9%)",
+    healthStatus: "Rapid Commercial Expansion",
+    healthBadge: "Commercial Expansion",
+    badgeColor: "bg-blue-950 text-cyan-300 border-cyan-700",
+    primaryAccount: "BE71 7360 4912 8820 (KBC Business PRO)",
+    balance: "€48,200.00",
+    creditScore: "AA (KBC Corporate Score)",
+    relationshipManager: "Anouk De Smet (KBC Kouter Gent)",
+
+    normalState: {
+      date: "Month 9 (September 2026)",
+      headline: "Kitchen Capacity Maxed Out at Starter Facility",
+      description: "Catering order volumes surged +180% over the summer. Lucas has identified a 320m² commercial production kitchen & tasting office at Dok Noord Ghent (Rent: €2,800/mo). Signing the commercial lease requires 3 months deposit (€8,400), commercial fire/tenant insurance, and an €85,000 kitchen fit-out.",
+      kpis: [
+        { label: "Monthly Revenue", value: "€36,400" },
+        { label: "Commercial Rent", value: "€2,800 / mo" },
+        { label: "Kitchen Capacity", value: "96% (Overloaded)" }
+      ]
+    },
+
+    predictedEvent: {
+      timeOffset: "+6 Months Forward",
+      date: "September 2026",
+      triggerType: "ALGORITHM PREDICTION: FIRST COMMERCIAL OFFICE & KITCHEN SPACE",
+      algorithmInsight: "Kate detected a commercial lease draft PDF for Dok Noord 4B (320m²) via Kate Document Scanner and cross-referenced with Billit catering invoice growth (+180%). The algorithm pre-approves an €8,400 KBC Rental Guarantee in Escrow (keeping Lucas's cash liquid), pre-underwrites an €85,000 SME Investment Loan at 3.65% for kitchen equipment, auto-binds mandatory KBC Office & Building Insurance, and dispatches De Immowinkel EPC certification.",
+
+      kateCard: {
+        title: "Secure Dok Noord Commercial Space & €85k Fit-Out!",
+        headline: "Kate pre-assembled your Digital Rental Guarantee in Escrow, €85,000 SME Investment Loan, and KBC Office & Building Insurance.",
+        kpiImpact: "Dok Noord 320m² Secured | €8,400 Cash Preserved in Escrow | €85,000 Fit-Out Funded",
+        cashflowImpact: {
+          upfrontCost: "€0 Out-of-Pocket (Guarantee replaces cash deposit)",
+          netBenefit: "+€7,200 / month production capacity expansion",
+          coreProducts: "Rental guarantee + Office and building insurance + Investment loan + De Immowinkel"
+        },
+        quickPoints: [
+          "Locks €8,400 Rental Guarantee in KBC Escrow (preserves working capital for food inventory)",
+          "Pre-underwrites €85,000 SME Investment Loan at 3.65% fixed for combi-steamers & walk-in cold rooms",
+          "Auto-binds mandatory KBC Office and Building Insurance (tenant fire, water & glass liability)",
+          "Connects Housing Ecosystem partners (De Immowinkel EPC inspection & Setle energy grant filing)"
+        ],
+        ctaText: "Approve Dok Noord Lease & Funding (itsme®)"
+      },
+
+      dominoSteps: [
+        {
+          id: "step_1",
+          stepNumber: "01",
+          label: "KBC Escrow & Housing",
+          title: "Digital Rental Guarantee Issuance (€8,400)",
+          description: "Locks €8,400 guarantee in KBC Escrow and transmits verified bank guarantee certificate to Dok Noord landlord without freezing operating cash.",
+          ecosystemPartner: "KBC Escrow (Housing Ecosystem)",
+          kbcProduct: "Rental guarantee & Rental Guarantee Widget",
+          apiEndpoint: "POST /v2/housing/rental-guarantee/issue",
+          latency: "160ms"
+        },
+        {
+          id: "step_2",
+          stepNumber: "02",
+          label: "KBC Core Lending",
+          title: "€85,000 SME Investment Loan Clearance",
+          description: "Credits pre-underwritten 5-year investment facility at 3.65% for commercial refrigeration and prep line directly to operating account.",
+          ecosystemPartner: "KBC Corporate Credit Engine",
+          kbcProduct: "Investment loan & Straight Loans",
+          apiEndpoint: "POST /v2/lending/investment-loans/disburse",
+          latency: "220ms"
+        },
+        {
+          id: "step_3",
+          stepNumber: "03",
+          label: "KBC Protection Core",
+          title: "Office and Building Insurance Auto-Binding",
+          description: "Underwrites comprehensive commercial property policy covering tenant fire, water damage, and business premises liability.",
+          ecosystemPartner: "KBC Verzekeringen (Business Protection)",
+          kbcProduct: "Office and building insurance & Business liability insurance",
+          apiEndpoint: "POST /v1/insurance/office-building/bind",
+          latency: "140ms"
+        },
+        {
+          id: "step_4",
+          stepNumber: "04",
+          label: "Housing Ecosystem",
+          title: "De Immowinkel EPC & Setle Energy Grant Filing",
+          description: "Dispatches De Immowinkel for statutory commercial EPC certificate and submits Setle energy grant request via eBox.",
+          ecosystemPartner: "De Immowinkel & Setle (Housing Ecosystem)",
+          kbcProduct: "Certificates and inspections - De Immowinkel & Setle",
+          apiEndpoint: "POST /v1/partners/housing/epc-compliance-dispatch",
+          latency: "260ms"
+        }
+      ],
+
+      underTheHoodPartners: [
+        {
+          role: "Commercial Lease & Rental Guarantee",
+          defaultPartner: "KBC Escrow (Housing Ecosystem)",
+          kbcService: "Rental guarantee & Rental Guarantee Widget",
+          dataShared: "Commercial lease deed, landlord IBAN, 3-month rental deposit (€8,400)",
+          canSwap: false,
+          note: "Core KBC Escrow Solution"
+        },
+        {
+          role: "SME Fit-out Asset Financing",
+          defaultPartner: "KBC Corporate Lending Core",
+          kbcService: "Investment loan & Straight Loans",
+          dataShared: "Supplier equipment pro-forma invoices, 5-year amortization plan",
+          canSwap: false,
+          note: "3.65% Fixed Rate Pre-Underwritten Facility"
+        },
+        {
+          role: "Premises Protection",
+          defaultPartner: "KBC Verzekeringen (Business Protection)",
+          kbcService: "Office and building insurance & Business liability",
+          dataShared: "Dok Noord 4B surface area (320m²), cadastral reference, kitchen fire rating",
+          canSwap: false,
+          note: "Core High-Margin Property Insurance"
+        },
+        {
+          role: "Real Estate Compliance & Grants",
+          defaultPartner: "De Immowinkel & Setle (Swappable)",
+          kbcService: "Certificates and inspections - De Immowinkel & Setle",
+          dataShared: "Premises address, energy meter specs, commercial renovation plan",
+          canSwap: true,
+          alternativePartners: ["BTV Control", "Certinergie", "Vinçotte Real Estate"]
+        }
+      ]
+    }
+  },
+
+  STAGE_3_FLEET_SCALING: {
+    id: "STAGE_3_FLEET_SCALING",
+    chapterNumber: 3,
+    badge: "Scaling Enterprise (10-35 FTEs)",
+    name: "Ghent Craft Foods BV",
+    tradingName: "De Gentse Proeverij",
+    founder: "Lucas De Clercq",
+    type: "Scaling Mid-Market Enterprise",
+    sector: "Artisan Food Production & Regional Logistics",
+    location: "Dok Noord 4B, 9000 Gent (Hub 1) + Brussels Distribution",
+    headcount: "Founder + 14 Full-Time Employees",
+    revenue: "€1,014,000 / year",
+    ebitda: "€182,000 / year (17.9%)",
+    healthStatus: "Multi-City Regional Scale",
+    healthBadge: "Fleet & Regional Scaler",
+    badgeColor: "bg-emerald-950 text-emerald-300 border-emerald-700",
+    primaryAccount: "BE71 7360 4912 8820 (KBC Business PRO Premium)",
+    balance: "€112,400.00",
+    creditScore: "AAA (KBC Corporate Score)",
+    relationshipManager: "Anouk De Smet (KBC Kouter Gent)",
+
+    normalState: {
+      date: "Month 18 (June 2027)",
+      headline: "Regional Delivery Surge & Courier Costs",
+      description: "Ghent Craft Foods now handles 45 corporate deliveries every day across Ghent, Antwerp, and Brussels. Outsourcing to third-party couriers costs €6,400/month, and upcoming Low Emission Zone (LEZ) surcharges in Antwerp and Brussels threaten delivery margins.",
+      kpis: [
+        { label: "Daily Drops", value: "45 Corporate Deliveries" },
+        { label: "Outsourced Courier Spend", value: "€6,400 / mo" },
+        { label: "Fleet TCO Savings Target", value: "+€2,450 / mo" }
+      ]
+    },
+
+    predictedEvent: {
+      timeOffset: "+9 Months Forward",
+      date: "June 2027",
+      triggerType: "ALGORITHM PREDICTION: FLEET ELECTRIFICATION & LOGISTICS IN-HOUSING",
+      algorithmInsight: "Kate analyzed daily delivery routes (45 drops/day) and Billit courier invoices (€6,400/mo). The algorithm calculates that leasing 3 refrigerated electric Ford e-Transits via KBC Car Loan Plus paired with Luminus MoveSmart depot charging cuts monthly delivery costs by €2,450, eliminates urban LEZ penalties, and captures €12,600 in Flemish Clean Power subsidies.",
+
+      kateCard: {
+        title: "Deploy 3 Electric Refrigerated Vans & Save €2,450/Mo!",
+        headline: "Kate pre-assembled your KBC Car Loan Plus Fleet, Luminus MoveSmart depot charging, Fleet Insurance, and €12,600 in Green Grants.",
+        kpiImpact: "+€2,450/mo Net Cash Savings | 3 Electric Vans Deployed | €12,600 Flemish Clean Power Grant",
+        cashflowImpact: {
+          upfrontCost: "€0 Capital Outlay (100% Asset Financed via KBC)",
+          netMonthlyReturn: "+€2,450 / month fuel & courier savings",
+          coreProducts: "Car Loan Plus + Electric car insurance + MoveSmart + Roll-Over Credit Line"
+        },
+        quickPoints: [
+          "Pre-underwrites 3 refrigerated e-Transits via KBC Car Loan Plus & B2B Asset Financing",
+          "Dispatches Luminus MoveSmart 22kW smart depot charging installation at Dok Noord",
+          "Binds mandatory KBC Electric car insurance and Goods-in-Transit commercial coverage",
+          "Auto-submits €12,600 Flemish Clean Power subsidy application via eBox government portal"
+        ],
+        ctaText: "Approve Fleet & Charging Infrastructure (itsme®)"
+      },
+
+      dominoSteps: [
+        {
+          id: "step_1",
+          stepNumber: "01",
+          label: "KBC Asset Financing",
+          title: "KBC Car Loan Plus Fleet Funding (€160k)",
+          description: "KBC Autolease pre-clears commercial vehicle financing for 3 refrigerated Ford e-Transit vans with zero collateral.",
+          ecosystemPartner: "KBC Autolease (Mobility Ecosystem)",
+          kbcProduct: "Car Loan Plus & Electric car loan",
+          apiEndpoint: "POST /v2/mobility/fleet/commercial-lease-dispatch",
+          latency: "170ms"
+        },
+        {
+          id: "step_2",
+          stepNumber: "02",
+          label: "KBC Employee Mobility",
+          title: "Luminus MoveSmart Depot 22kW Charging",
+          description: "Dispatches automated work order for Dok Noord charging infrastructure and links driver split-billing cards.",
+          ecosystemPartner: "MoveSmart & Luminus (Mobility Ecosystem)",
+          kbcProduct: "Manage a leased vehicle - MoveSmart and VAB",
+          apiEndpoint: "POST /v1/partners/mobility/movesmart-fleet-sync",
+          latency: "210ms"
+        },
+        {
+          id: "step_3",
+          stepNumber: "03",
+          label: "KBC Protection Core",
+          title: "Commercial Fleet & Liability Insurance",
+          description: "Auto-binds comprehensive multi-vehicle policy covering battery, cargo refrigeration breakdown, and driver protection.",
+          ecosystemPartner: "KBC Verzekeringen (Business Protection)",
+          kbcProduct: "Electric car insurance & Business liability insurance",
+          apiEndpoint: "POST /v2/insurance/corporate-fleet/bind",
+          latency: "130ms"
+        },
+        {
+          id: "step_4",
+          stepNumber: "04",
+          label: "Government Subsidy",
+          title: "Flemish Clean Power Grants (€12,600)",
+          description: "Transmits digital grant request for 3 × €4,200 zero-emission vehicle subsidies to Vlaams Klimaatfonds via eBox.",
+          ecosystemPartner: "Vlaams Klimaatfonds & eBox Gateway",
+          kbcProduct: "Application status webhooks & eBox",
+          apiEndpoint: "POST /v2/gov/vlaio/claim-clean-power-grant",
+          latency: "250ms"
+        }
+      ],
+
+      underTheHoodPartners: [
+        {
+          role: "Commercial EV Fleet Financing",
+          defaultPartner: "KBC Autolease (Mobility Ecosystem)",
+          kbcService: "Car Loan Plus & Electric car loan",
+          dataShared: "Fleet specs, 3 x Ford e-Transit cold-box configurations, 48-month leasing matrix",
+          canSwap: false,
+          note: "100% Asset-Financed KBC Facility"
+        },
+        {
+          role: "Smart Depot Charging & Energy",
+          defaultPartner: "Luminus MoveSmart (KBC Partner Hub)",
+          kbcService: "Manage a leased vehicle - MoveSmart and VAB",
+          dataShared: "Dok Noord electrical cabine rating, 22kW charging hardware, driver RFID tokens",
+          canSwap: true,
+          alternativePartners: ["TotalEnergies On The Move", "Shell Recharge Fleet", "EDI EV Charging"]
+        },
+        {
+          role: "Fleet Commercial Insurance",
+          defaultPartner: "KBC Verzekeringen (Business Protection)",
+          kbcService: "Electric car insurance & Business liability",
+          dataShared: "Chassis numbers, commercial driver authorizations, refrigerated cargo value",
+          canSwap: false,
+          note: "Core High-Margin Fleet Policy"
+        },
+        {
+          role: "Regional Green Subsidies",
+          defaultPartner: "Vlaams Klimaatfonds via eBox",
+          kbcService: "Application status webhooks & eBox",
+          dataShared: "Vehicle registration certificates (DIV), zero-emission homologation documents",
+          canSwap: false,
+          note: "Flemish Government Zero-Emission Transport Mandate"
         }
       ]
     }
@@ -324,6 +607,286 @@ export const COMPANIES = {
     }
   },
 
+  STAGE_2_OFFICE_SPACE: {
+    id: "STAGE_2_OFFICE_SPACE",
+    chapterNumber: 2,
+    badge: "Middle Growth (3-10 FTEs)",
+    name: "Ghent Craft Foods BV",
+    tradingName: "De Gentse Proeverij",
+    founder: "Lucas De Clercq",
+    type: "Growing SME (Commercial Expansion)",
+    sector: "Artisan Food Production & Commercial Catering",
+    location: "Dok Noord 4B, 9000 Gent",
+    headcount: "Founder + 4 Full-Time Employees",
+    revenue: "€436,000 / year",
+    ebitda: "€78,000 / year (17.9%)",
+    healthStatus: "Rapid Commercial Expansion",
+    healthBadge: "Commercial Expansion",
+    badgeColor: "bg-blue-950 text-cyan-300 border-cyan-700",
+    primaryAccount: "BE71 7360 4912 8820 (KBC Business PRO)",
+    balance: "€48,200.00",
+    creditScore: "AA (KBC Corporate Score)",
+    relationshipManager: "Anouk De Smet (KBC Kouter Gent)",
+
+    normalState: {
+      date: "Month 9 (September 2026)",
+      headline: "Kitchen Capacity Maxed Out at Starter Facility",
+      description: "Catering order volumes surged +180% over the summer. Lucas has identified a 320m² commercial production kitchen & tasting office at Dok Noord Ghent (Rent: €2,800/mo). Signing the commercial lease requires 3 months deposit (€8,400), commercial fire/tenant insurance, and an €85,000 kitchen fit-out.",
+      kpis: [
+        { label: "Monthly Revenue", value: "€36,400" },
+        { label: "Commercial Rent", value: "€2,800 / mo" },
+        { label: "Kitchen Capacity", value: "96% (Overloaded)" }
+      ]
+    },
+
+    predictedEvent: {
+      timeOffset: "+6 Months Forward",
+      date: "September 2026",
+      triggerType: "ALGORITHM PREDICTION: FIRST COMMERCIAL OFFICE & KITCHEN SPACE",
+      algorithmInsight: "Kate detected a commercial lease draft PDF for Dok Noord 4B (320m²) via Kate Document Scanner and cross-referenced with Billit catering invoice growth (+180%). The algorithm pre-approves an €8,400 KBC Rental Guarantee in Escrow (keeping Lucas's cash liquid), pre-underwrites an €85,000 SME Investment Loan at 3.65% for kitchen equipment, auto-binds mandatory KBC Office & Building Insurance, and dispatches De Immowinkel EPC certification.",
+
+      kateCard: {
+        title: "Secure Dok Noord Commercial Space & €85k Fit-Out!",
+        headline: "Kate pre-assembled your Digital Rental Guarantee in Escrow, €85,000 SME Investment Loan, and KBC Office & Building Insurance.",
+        kpiImpact: "Dok Noord 320m² Secured | €8,400 Cash Preserved in Escrow | €85,000 Fit-Out Funded",
+        cashflowImpact: {
+          upfrontCost: "€0 Out-of-Pocket (Guarantee replaces cash deposit)",
+          netBenefit: "+€7,200 / month production capacity expansion",
+          coreProducts: "Rental guarantee + Office and building insurance + Investment loan + De Immowinkel"
+        },
+        quickPoints: [
+          "Locks €8,400 Rental Guarantee in KBC Escrow (preserves working capital for food inventory)",
+          "Pre-underwrites €85,000 SME Investment Loan at 3.65% fixed for combi-steamers & walk-in cold rooms",
+          "Auto-binds mandatory KBC Office and Building Insurance (tenant fire, water & glass liability)",
+          "Connects Housing Ecosystem partners (De Immowinkel EPC inspection & Setle energy grant filing)"
+        ],
+        ctaText: "Approve Dok Noord Lease & Funding (itsme®)"
+      },
+
+      dominoSteps: [
+        {
+          id: "step_1",
+          stepNumber: "01",
+          label: "KBC Escrow & Housing",
+          title: "Digital Rental Guarantee Issuance (€8,400)",
+          description: "Locks €8,400 guarantee in KBC Escrow and transmits verified bank guarantee certificate to Dok Noord landlord without freezing operating cash.",
+          ecosystemPartner: "KBC Escrow (Housing Ecosystem)",
+          kbcProduct: "Rental guarantee & Rental Guarantee Widget",
+          apiEndpoint: "POST /v2/housing/rental-guarantee/issue",
+          latency: "160ms"
+        },
+        {
+          id: "step_2",
+          stepNumber: "02",
+          label: "KBC Core Lending",
+          title: "€85,000 SME Investment Loan Clearance",
+          description: "Credits pre-underwritten 5-year investment facility at 3.65% for commercial refrigeration and prep line directly to operating account.",
+          ecosystemPartner: "KBC Corporate Credit Engine",
+          kbcProduct: "Investment loan & Straight Loans",
+          apiEndpoint: "POST /v2/lending/investment-loans/disburse",
+          latency: "220ms"
+        },
+        {
+          id: "step_3",
+          stepNumber: "03",
+          label: "KBC Protection Core",
+          title: "Office and Building Insurance Auto-Binding",
+          description: "Underwrites comprehensive commercial property policy covering tenant fire, water damage, and business premises liability.",
+          ecosystemPartner: "KBC Verzekeringen (Business Protection)",
+          kbcProduct: "Office and building insurance & Business liability insurance",
+          apiEndpoint: "POST /v1/insurance/office-building/bind",
+          latency: "140ms"
+        },
+        {
+          id: "step_4",
+          stepNumber: "04",
+          label: "Housing Ecosystem",
+          title: "De Immowinkel EPC & Setle Energy Grant Filing",
+          description: "Dispatches De Immowinkel for statutory commercial EPC certificate and submits Setle energy grant request via eBox.",
+          ecosystemPartner: "De Immowinkel & Setle (Housing Ecosystem)",
+          kbcProduct: "Certificates and inspections - De Immowinkel & Setle",
+          apiEndpoint: "POST /v1/partners/housing/epc-compliance-dispatch",
+          latency: "260ms"
+        }
+      ],
+
+      underTheHoodPartners: [
+        {
+          role: "Commercial Lease & Rental Guarantee",
+          defaultPartner: "KBC Escrow (Housing Ecosystem)",
+          kbcService: "Rental guarantee & Rental Guarantee Widget",
+          dataShared: "Commercial lease deed, landlord IBAN, 3-month rental deposit (€8,400)",
+          canSwap: false,
+          note: "Core KBC Escrow Solution"
+        },
+        {
+          role: "SME Fit-out Asset Financing",
+          defaultPartner: "KBC Corporate Lending Core",
+          kbcService: "Investment loan & Straight Loans",
+          dataShared: "Supplier equipment pro-forma invoices, 5-year amortization plan",
+          canSwap: false,
+          note: "3.65% Fixed Rate Pre-Underwritten Facility"
+        },
+        {
+          role: "Premises Protection",
+          defaultPartner: "KBC Verzekeringen (Business Protection)",
+          kbcService: "Office and building insurance & Business liability",
+          dataShared: "Dok Noord 4B surface area (320m²), cadastral reference, kitchen fire rating",
+          canSwap: false,
+          note: "Core High-Margin Property Insurance"
+        },
+        {
+          role: "Real Estate Compliance & Grants",
+          defaultPartner: "De Immowinkel & Setle (Swappable)",
+          kbcService: "Certificates and inspections - De Immowinkel & Setle",
+          dataShared: "Premises address, energy meter specs, commercial renovation plan",
+          canSwap: true,
+          alternativePartners: ["BTV Control", "Certinergie", "Vinçotte Real Estate"]
+        }
+      ]
+    }
+  },
+
+  STAGE_3_FLEET_SCALING: {
+    id: "STAGE_3_FLEET_SCALING",
+    chapterNumber: 3,
+    badge: "Scaling Enterprise (10-35 FTEs)",
+    name: "Ghent Craft Foods BV",
+    tradingName: "De Gentse Proeverij",
+    founder: "Lucas De Clercq",
+    type: "Scaling Mid-Market Enterprise",
+    sector: "Artisan Food Production & Regional Logistics",
+    location: "Dok Noord 4B, 9000 Gent (Hub 1) + Brussels Distribution",
+    headcount: "Founder + 14 Full-Time Employees",
+    revenue: "€1,014,000 / year",
+    ebitda: "€182,000 / year (17.9%)",
+    healthStatus: "Multi-City Regional Scale",
+    healthBadge: "Fleet & Regional Scaler",
+    badgeColor: "bg-emerald-950 text-emerald-300 border-emerald-700",
+    primaryAccount: "BE71 7360 4912 8820 (KBC Business PRO Premium)",
+    balance: "€112,400.00",
+    creditScore: "AAA (KBC Corporate Score)",
+    relationshipManager: "Anouk De Smet (KBC Kouter Gent)",
+
+    normalState: {
+      date: "Month 18 (June 2027)",
+      headline: "Regional Delivery Surge & Courier Costs",
+      description: "Ghent Craft Foods now handles 45 corporate deliveries every day across Ghent, Antwerp, and Brussels. Outsourcing to third-party couriers costs €6,400/month, and upcoming Low Emission Zone (LEZ) surcharges in Antwerp and Brussels threaten delivery margins.",
+      kpis: [
+        { label: "Daily Drops", value: "45 Corporate Deliveries" },
+        { label: "Outsourced Courier Spend", value: "€6,400 / mo" },
+        { label: "Fleet TCO Savings Target", value: "+€2,450 / mo" }
+      ]
+    },
+
+    predictedEvent: {
+      timeOffset: "+9 Months Forward",
+      date: "June 2027",
+      triggerType: "ALGORITHM PREDICTION: FLEET ELECTRIFICATION & LOGISTICS IN-HOUSING",
+      algorithmInsight: "Kate analyzed daily delivery routes (45 drops/day) and Billit courier invoices (€6,400/mo). The algorithm calculates that leasing 3 refrigerated electric Ford e-Transits via KBC Car Loan Plus paired with Luminus MoveSmart depot charging cuts monthly delivery costs by €2,450, eliminates urban LEZ penalties, and captures €12,600 in Flemish Clean Power subsidies.",
+
+      kateCard: {
+        title: "Deploy 3 Electric Refrigerated Vans & Save €2,450/Mo!",
+        headline: "Kate pre-assembled your KBC Car Loan Plus Fleet, Luminus MoveSmart depot charging, Fleet Insurance, and €12,600 in Green Grants.",
+        kpiImpact: "+€2,450/mo Net Cash Savings | 3 Electric Vans Deployed | €12,600 Flemish Clean Power Grant",
+        cashflowImpact: {
+          upfrontCost: "€0 Capital Outlay (100% Asset Financed via KBC)",
+          netMonthlyReturn: "+€2,450 / month fuel & courier savings",
+          coreProducts: "Car Loan Plus + Electric car insurance + MoveSmart + Roll-Over Credit Line"
+        },
+        quickPoints: [
+          "Pre-underwrites 3 refrigerated e-Transits via KBC Car Loan Plus & B2B Asset Financing",
+          "Dispatches Luminus MoveSmart 22kW smart depot charging installation at Dok Noord",
+          "Binds mandatory KBC Electric car insurance and Goods-in-Transit commercial coverage",
+          "Auto-submits €12,600 Flemish Clean Power subsidy application via eBox government portal"
+        ],
+        ctaText: "Approve Fleet & Charging Infrastructure (itsme®)"
+      },
+
+      dominoSteps: [
+        {
+          id: "step_1",
+          stepNumber: "01",
+          label: "KBC Asset Financing",
+          title: "KBC Car Loan Plus Fleet Funding (€160k)",
+          description: "KBC Autolease pre-clears commercial vehicle financing for 3 refrigerated Ford e-Transit vans with zero collateral.",
+          ecosystemPartner: "KBC Autolease (Mobility Ecosystem)",
+          kbcProduct: "Car Loan Plus & Electric car loan",
+          apiEndpoint: "POST /v2/mobility/fleet/commercial-lease-dispatch",
+          latency: "170ms"
+        },
+        {
+          id: "step_2",
+          stepNumber: "02",
+          label: "KBC Employee Mobility",
+          title: "Luminus MoveSmart Depot 22kW Charging",
+          description: "Dispatches automated work order for Dok Noord charging infrastructure and links driver split-billing cards.",
+          ecosystemPartner: "MoveSmart & Luminus (Mobility Ecosystem)",
+          kbcProduct: "Manage a leased vehicle - MoveSmart and VAB",
+          apiEndpoint: "POST /v1/partners/mobility/movesmart-fleet-sync",
+          latency: "210ms"
+        },
+        {
+          id: "step_3",
+          stepNumber: "03",
+          label: "KBC Protection Core",
+          title: "Commercial Fleet & Liability Insurance",
+          description: "Auto-binds comprehensive multi-vehicle policy covering battery, cargo refrigeration breakdown, and driver protection.",
+          ecosystemPartner: "KBC Verzekeringen (Business Protection)",
+          kbcProduct: "Electric car insurance & Business liability insurance",
+          apiEndpoint: "POST /v2/insurance/corporate-fleet/bind",
+          latency: "130ms"
+        },
+        {
+          id: "step_4",
+          stepNumber: "04",
+          label: "Government Subsidy",
+          title: "Flemish Clean Power Grants (€12,600)",
+          description: "Transmits digital grant request for 3 × €4,200 zero-emission vehicle subsidies to Vlaams Klimaatfonds via eBox.",
+          ecosystemPartner: "Vlaams Klimaatfonds & eBox Gateway",
+          kbcProduct: "Application status webhooks & eBox",
+          apiEndpoint: "POST /v2/gov/vlaio/claim-clean-power-grant",
+          latency: "250ms"
+        }
+      ],
+
+      underTheHoodPartners: [
+        {
+          role: "Commercial EV Fleet Financing",
+          defaultPartner: "KBC Autolease (Mobility Ecosystem)",
+          kbcService: "Car Loan Plus & Electric car loan",
+          dataShared: "Fleet specs, 3 x Ford e-Transit cold-box configurations, 48-month leasing matrix",
+          canSwap: false,
+          note: "100% Asset-Financed KBC Facility"
+        },
+        {
+          role: "Smart Depot Charging & Energy",
+          defaultPartner: "Luminus MoveSmart (KBC Partner Hub)",
+          kbcService: "Manage a leased vehicle - MoveSmart and VAB",
+          dataShared: "Dok Noord electrical cabine rating, 22kW charging hardware, driver RFID tokens",
+          canSwap: true,
+          alternativePartners: ["TotalEnergies On The Move", "Shell Recharge Fleet", "EDI EV Charging"]
+        },
+        {
+          role: "Fleet Commercial Insurance",
+          defaultPartner: "KBC Verzekeringen (Business Protection)",
+          kbcService: "Electric car insurance & Business liability",
+          dataShared: "Chassis numbers, commercial driver authorizations, refrigerated cargo value",
+          canSwap: false,
+          note: "Core High-Margin Fleet Policy"
+        },
+        {
+          role: "Regional Green Subsidies",
+          defaultPartner: "Vlaams Klimaatfonds via eBox",
+          kbcService: "Application status webhooks & eBox",
+          dataShared: "Vehicle registration certificates (DIV), zero-emission homologation documents",
+          canSwap: false,
+          note: "Flemish Government Zero-Emission Transport Mandate"
+        }
+      ]
+    }
+  },
+
   DISTRESSED_DOWNTURN: {
     id: "DISTRESSED_DOWNTURN",
     name: "Vanderbauwhede Logistics (Downturn)",
@@ -477,6 +1040,286 @@ export const COMPANIES = {
           dataShared: "12-month rolling cashflow forecast, bank covenant stress test",
           canSwap: false,
           note: "Dedicated Relationship Manager Intervention"
+        }
+      ]
+    }
+  },
+
+  STAGE_2_OFFICE_SPACE: {
+    id: "STAGE_2_OFFICE_SPACE",
+    chapterNumber: 2,
+    badge: "Middle Growth (3-10 FTEs)",
+    name: "Ghent Craft Foods BV",
+    tradingName: "De Gentse Proeverij",
+    founder: "Lucas De Clercq",
+    type: "Growing SME (Commercial Expansion)",
+    sector: "Artisan Food Production & Commercial Catering",
+    location: "Dok Noord 4B, 9000 Gent",
+    headcount: "Founder + 4 Full-Time Employees",
+    revenue: "€436,000 / year",
+    ebitda: "€78,000 / year (17.9%)",
+    healthStatus: "Rapid Commercial Expansion",
+    healthBadge: "Commercial Expansion",
+    badgeColor: "bg-blue-950 text-cyan-300 border-cyan-700",
+    primaryAccount: "BE71 7360 4912 8820 (KBC Business PRO)",
+    balance: "€48,200.00",
+    creditScore: "AA (KBC Corporate Score)",
+    relationshipManager: "Anouk De Smet (KBC Kouter Gent)",
+
+    normalState: {
+      date: "Month 9 (September 2026)",
+      headline: "Kitchen Capacity Maxed Out at Starter Facility",
+      description: "Catering order volumes surged +180% over the summer. Lucas has identified a 320m² commercial production kitchen & tasting office at Dok Noord Ghent (Rent: €2,800/mo). Signing the commercial lease requires 3 months deposit (€8,400), commercial fire/tenant insurance, and an €85,000 kitchen fit-out.",
+      kpis: [
+        { label: "Monthly Revenue", value: "€36,400" },
+        { label: "Commercial Rent", value: "€2,800 / mo" },
+        { label: "Kitchen Capacity", value: "96% (Overloaded)" }
+      ]
+    },
+
+    predictedEvent: {
+      timeOffset: "+6 Months Forward",
+      date: "September 2026",
+      triggerType: "ALGORITHM PREDICTION: FIRST COMMERCIAL OFFICE & KITCHEN SPACE",
+      algorithmInsight: "Kate detected a commercial lease draft PDF for Dok Noord 4B (320m²) via Kate Document Scanner and cross-referenced with Billit catering invoice growth (+180%). The algorithm pre-approves an €8,400 KBC Rental Guarantee in Escrow (keeping Lucas's cash liquid), pre-underwrites an €85,000 SME Investment Loan at 3.65% for kitchen equipment, auto-binds mandatory KBC Office & Building Insurance, and dispatches De Immowinkel EPC certification.",
+
+      kateCard: {
+        title: "Secure Dok Noord Commercial Space & €85k Fit-Out!",
+        headline: "Kate pre-assembled your Digital Rental Guarantee in Escrow, €85,000 SME Investment Loan, and KBC Office & Building Insurance.",
+        kpiImpact: "Dok Noord 320m² Secured | €8,400 Cash Preserved in Escrow | €85,000 Fit-Out Funded",
+        cashflowImpact: {
+          upfrontCost: "€0 Out-of-Pocket (Guarantee replaces cash deposit)",
+          netBenefit: "+€7,200 / month production capacity expansion",
+          coreProducts: "Rental guarantee + Office and building insurance + Investment loan + De Immowinkel"
+        },
+        quickPoints: [
+          "Locks €8,400 Rental Guarantee in KBC Escrow (preserves working capital for food inventory)",
+          "Pre-underwrites €85,000 SME Investment Loan at 3.65% fixed for combi-steamers & walk-in cold rooms",
+          "Auto-binds mandatory KBC Office and Building Insurance (tenant fire, water & glass liability)",
+          "Connects Housing Ecosystem partners (De Immowinkel EPC inspection & Setle energy grant filing)"
+        ],
+        ctaText: "Approve Dok Noord Lease & Funding (itsme®)"
+      },
+
+      dominoSteps: [
+        {
+          id: "step_1",
+          stepNumber: "01",
+          label: "KBC Escrow & Housing",
+          title: "Digital Rental Guarantee Issuance (€8,400)",
+          description: "Locks €8,400 guarantee in KBC Escrow and transmits verified bank guarantee certificate to Dok Noord landlord without freezing operating cash.",
+          ecosystemPartner: "KBC Escrow (Housing Ecosystem)",
+          kbcProduct: "Rental guarantee & Rental Guarantee Widget",
+          apiEndpoint: "POST /v2/housing/rental-guarantee/issue",
+          latency: "160ms"
+        },
+        {
+          id: "step_2",
+          stepNumber: "02",
+          label: "KBC Core Lending",
+          title: "€85,000 SME Investment Loan Clearance",
+          description: "Credits pre-underwritten 5-year investment facility at 3.65% for commercial refrigeration and prep line directly to operating account.",
+          ecosystemPartner: "KBC Corporate Credit Engine",
+          kbcProduct: "Investment loan & Straight Loans",
+          apiEndpoint: "POST /v2/lending/investment-loans/disburse",
+          latency: "220ms"
+        },
+        {
+          id: "step_3",
+          stepNumber: "03",
+          label: "KBC Protection Core",
+          title: "Office and Building Insurance Auto-Binding",
+          description: "Underwrites comprehensive commercial property policy covering tenant fire, water damage, and business premises liability.",
+          ecosystemPartner: "KBC Verzekeringen (Business Protection)",
+          kbcProduct: "Office and building insurance & Business liability insurance",
+          apiEndpoint: "POST /v1/insurance/office-building/bind",
+          latency: "140ms"
+        },
+        {
+          id: "step_4",
+          stepNumber: "04",
+          label: "Housing Ecosystem",
+          title: "De Immowinkel EPC & Setle Energy Grant Filing",
+          description: "Dispatches De Immowinkel for statutory commercial EPC certificate and submits Setle energy grant request via eBox.",
+          ecosystemPartner: "De Immowinkel & Setle (Housing Ecosystem)",
+          kbcProduct: "Certificates and inspections - De Immowinkel & Setle",
+          apiEndpoint: "POST /v1/partners/housing/epc-compliance-dispatch",
+          latency: "260ms"
+        }
+      ],
+
+      underTheHoodPartners: [
+        {
+          role: "Commercial Lease & Rental Guarantee",
+          defaultPartner: "KBC Escrow (Housing Ecosystem)",
+          kbcService: "Rental guarantee & Rental Guarantee Widget",
+          dataShared: "Commercial lease deed, landlord IBAN, 3-month rental deposit (€8,400)",
+          canSwap: false,
+          note: "Core KBC Escrow Solution"
+        },
+        {
+          role: "SME Fit-out Asset Financing",
+          defaultPartner: "KBC Corporate Lending Core",
+          kbcService: "Investment loan & Straight Loans",
+          dataShared: "Supplier equipment pro-forma invoices, 5-year amortization plan",
+          canSwap: false,
+          note: "3.65% Fixed Rate Pre-Underwritten Facility"
+        },
+        {
+          role: "Premises Protection",
+          defaultPartner: "KBC Verzekeringen (Business Protection)",
+          kbcService: "Office and building insurance & Business liability",
+          dataShared: "Dok Noord 4B surface area (320m²), cadastral reference, kitchen fire rating",
+          canSwap: false,
+          note: "Core High-Margin Property Insurance"
+        },
+        {
+          role: "Real Estate Compliance & Grants",
+          defaultPartner: "De Immowinkel & Setle (Swappable)",
+          kbcService: "Certificates and inspections - De Immowinkel & Setle",
+          dataShared: "Premises address, energy meter specs, commercial renovation plan",
+          canSwap: true,
+          alternativePartners: ["BTV Control", "Certinergie", "Vinçotte Real Estate"]
+        }
+      ]
+    }
+  },
+
+  STAGE_3_FLEET_SCALING: {
+    id: "STAGE_3_FLEET_SCALING",
+    chapterNumber: 3,
+    badge: "Scaling Enterprise (10-35 FTEs)",
+    name: "Ghent Craft Foods BV",
+    tradingName: "De Gentse Proeverij",
+    founder: "Lucas De Clercq",
+    type: "Scaling Mid-Market Enterprise",
+    sector: "Artisan Food Production & Regional Logistics",
+    location: "Dok Noord 4B, 9000 Gent (Hub 1) + Brussels Distribution",
+    headcount: "Founder + 14 Full-Time Employees",
+    revenue: "€1,014,000 / year",
+    ebitda: "€182,000 / year (17.9%)",
+    healthStatus: "Multi-City Regional Scale",
+    healthBadge: "Fleet & Regional Scaler",
+    badgeColor: "bg-emerald-950 text-emerald-300 border-emerald-700",
+    primaryAccount: "BE71 7360 4912 8820 (KBC Business PRO Premium)",
+    balance: "€112,400.00",
+    creditScore: "AAA (KBC Corporate Score)",
+    relationshipManager: "Anouk De Smet (KBC Kouter Gent)",
+
+    normalState: {
+      date: "Month 18 (June 2027)",
+      headline: "Regional Delivery Surge & Courier Costs",
+      description: "Ghent Craft Foods now handles 45 corporate deliveries every day across Ghent, Antwerp, and Brussels. Outsourcing to third-party couriers costs €6,400/month, and upcoming Low Emission Zone (LEZ) surcharges in Antwerp and Brussels threaten delivery margins.",
+      kpis: [
+        { label: "Daily Drops", value: "45 Corporate Deliveries" },
+        { label: "Outsourced Courier Spend", value: "€6,400 / mo" },
+        { label: "Fleet TCO Savings Target", value: "+€2,450 / mo" }
+      ]
+    },
+
+    predictedEvent: {
+      timeOffset: "+9 Months Forward",
+      date: "June 2027",
+      triggerType: "ALGORITHM PREDICTION: FLEET ELECTRIFICATION & LOGISTICS IN-HOUSING",
+      algorithmInsight: "Kate analyzed daily delivery routes (45 drops/day) and Billit courier invoices (€6,400/mo). The algorithm calculates that leasing 3 refrigerated electric Ford e-Transits via KBC Car Loan Plus paired with Luminus MoveSmart depot charging cuts monthly delivery costs by €2,450, eliminates urban LEZ penalties, and captures €12,600 in Flemish Clean Power subsidies.",
+
+      kateCard: {
+        title: "Deploy 3 Electric Refrigerated Vans & Save €2,450/Mo!",
+        headline: "Kate pre-assembled your KBC Car Loan Plus Fleet, Luminus MoveSmart depot charging, Fleet Insurance, and €12,600 in Green Grants.",
+        kpiImpact: "+€2,450/mo Net Cash Savings | 3 Electric Vans Deployed | €12,600 Flemish Clean Power Grant",
+        cashflowImpact: {
+          upfrontCost: "€0 Capital Outlay (100% Asset Financed via KBC)",
+          netMonthlyReturn: "+€2,450 / month fuel & courier savings",
+          coreProducts: "Car Loan Plus + Electric car insurance + MoveSmart + Roll-Over Credit Line"
+        },
+        quickPoints: [
+          "Pre-underwrites 3 refrigerated e-Transits via KBC Car Loan Plus & B2B Asset Financing",
+          "Dispatches Luminus MoveSmart 22kW smart depot charging installation at Dok Noord",
+          "Binds mandatory KBC Electric car insurance and Goods-in-Transit commercial coverage",
+          "Auto-submits €12,600 Flemish Clean Power subsidy application via eBox government portal"
+        ],
+        ctaText: "Approve Fleet & Charging Infrastructure (itsme®)"
+      },
+
+      dominoSteps: [
+        {
+          id: "step_1",
+          stepNumber: "01",
+          label: "KBC Asset Financing",
+          title: "KBC Car Loan Plus Fleet Funding (€160k)",
+          description: "KBC Autolease pre-clears commercial vehicle financing for 3 refrigerated Ford e-Transit vans with zero collateral.",
+          ecosystemPartner: "KBC Autolease (Mobility Ecosystem)",
+          kbcProduct: "Car Loan Plus & Electric car loan",
+          apiEndpoint: "POST /v2/mobility/fleet/commercial-lease-dispatch",
+          latency: "170ms"
+        },
+        {
+          id: "step_2",
+          stepNumber: "02",
+          label: "KBC Employee Mobility",
+          title: "Luminus MoveSmart Depot 22kW Charging",
+          description: "Dispatches automated work order for Dok Noord charging infrastructure and links driver split-billing cards.",
+          ecosystemPartner: "MoveSmart & Luminus (Mobility Ecosystem)",
+          kbcProduct: "Manage a leased vehicle - MoveSmart and VAB",
+          apiEndpoint: "POST /v1/partners/mobility/movesmart-fleet-sync",
+          latency: "210ms"
+        },
+        {
+          id: "step_3",
+          stepNumber: "03",
+          label: "KBC Protection Core",
+          title: "Commercial Fleet & Liability Insurance",
+          description: "Auto-binds comprehensive multi-vehicle policy covering battery, cargo refrigeration breakdown, and driver protection.",
+          ecosystemPartner: "KBC Verzekeringen (Business Protection)",
+          kbcProduct: "Electric car insurance & Business liability insurance",
+          apiEndpoint: "POST /v2/insurance/corporate-fleet/bind",
+          latency: "130ms"
+        },
+        {
+          id: "step_4",
+          stepNumber: "04",
+          label: "Government Subsidy",
+          title: "Flemish Clean Power Grants (€12,600)",
+          description: "Transmits digital grant request for 3 × €4,200 zero-emission vehicle subsidies to Vlaams Klimaatfonds via eBox.",
+          ecosystemPartner: "Vlaams Klimaatfonds & eBox Gateway",
+          kbcProduct: "Application status webhooks & eBox",
+          apiEndpoint: "POST /v2/gov/vlaio/claim-clean-power-grant",
+          latency: "250ms"
+        }
+      ],
+
+      underTheHoodPartners: [
+        {
+          role: "Commercial EV Fleet Financing",
+          defaultPartner: "KBC Autolease (Mobility Ecosystem)",
+          kbcService: "Car Loan Plus & Electric car loan",
+          dataShared: "Fleet specs, 3 x Ford e-Transit cold-box configurations, 48-month leasing matrix",
+          canSwap: false,
+          note: "100% Asset-Financed KBC Facility"
+        },
+        {
+          role: "Smart Depot Charging & Energy",
+          defaultPartner: "Luminus MoveSmart (KBC Partner Hub)",
+          kbcService: "Manage a leased vehicle - MoveSmart and VAB",
+          dataShared: "Dok Noord electrical cabine rating, 22kW charging hardware, driver RFID tokens",
+          canSwap: true,
+          alternativePartners: ["TotalEnergies On The Move", "Shell Recharge Fleet", "EDI EV Charging"]
+        },
+        {
+          role: "Fleet Commercial Insurance",
+          defaultPartner: "KBC Verzekeringen (Business Protection)",
+          kbcService: "Electric car insurance & Business liability",
+          dataShared: "Chassis numbers, commercial driver authorizations, refrigerated cargo value",
+          canSwap: false,
+          note: "Core High-Margin Fleet Policy"
+        },
+        {
+          role: "Regional Green Subsidies",
+          defaultPartner: "Vlaams Klimaatfonds via eBox",
+          kbcService: "Application status webhooks & eBox",
+          dataShared: "Vehicle registration certificates (DIV), zero-emission homologation documents",
+          canSwap: false,
+          note: "Flemish Government Zero-Emission Transport Mandate"
         }
       ]
     }
@@ -650,6 +1493,12 @@ export const COMPANIES = {
     }
   }
 };
+
+// Aliases for the 3-Chapter Lifecycle Story
+COMPANIES.STARTER = COMPANIES.STAGE_1_FIRST_HIRE;
+COMPANIES.PROFITABLE_GROWTH = COMPANIES.STAGE_2_OFFICE_SPACE;
+COMPANIES.DISTRESSED_DOWNTURN = COMPANIES.STAGE_2_OFFICE_SPACE;
+COMPANIES.ENTERPRISE_MA = COMPANIES.STAGE_3_FLEET_SCALING;
 
 // -------------------------------------------------------------
 // HOW KBC ACQUIRES NON-CLIENT DATA (The 3 Ingestion Rails)
@@ -904,3 +1753,9 @@ export const SCENARIOS = {
     }
   }
 };
+
+// Aliases for the 3-Chapter Lifecycle Story
+COMPANIES.STARTER = COMPANIES.STAGE_1_FIRST_HIRE;
+COMPANIES.PROFITABLE_GROWTH = COMPANIES.STAGE_2_OFFICE_SPACE;
+COMPANIES.DISTRESSED_DOWNTURN = COMPANIES.STAGE_2_OFFICE_SPACE;
+COMPANIES.ENTERPRISE_MA = COMPANIES.STAGE_3_FLEET_SCALING;

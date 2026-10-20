@@ -71,7 +71,7 @@ export default function ArchitectureView({
         <div>
           <div className="flex items-center space-x-2 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-1">
             <Brain className="w-4 h-4 text-kbc-sky" />
-            <span>Kate AI Algorithmic Intelligence & Under-the-Hood Logic</span>
+            <span>Algorithmic Prediction Models & Under-the-Hood Logic</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
             Inside the Mind of the Algorithm: {company.name}
@@ -81,68 +81,56 @@ export default function ArchitectureView({
           </p>
         </div>
 
-        {/* Company Quick Selector */}
+        {/* One Continuous Story Chapter Selector */}
         <div className="flex items-center space-x-2">
           <div className="bg-slate-950 p-1.5 rounded-2xl border border-slate-800 flex items-center">
+            <span className="text-[10px] text-cyan-400 font-bold uppercase tracking-wider px-2 hidden sm:inline">
+              Story:
+            </span>
             <button
               onClick={() => {
-                setSelectedCompanyKey('STARTER');
+                setSelectedCompanyKey('STAGE_1_FIRST_HIRE');
                 setSelectedStepIndex(0);
                 setIsTimeAdvanced(false);
                 resetExecution();
               }}
               className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
-                selectedCompanyKey === 'STARTER'
+                selectedCompanyKey === 'STAGE_1_FIRST_HIRE' || selectedCompanyKey === 'STARTER'
                   ? 'bg-amber-950 text-amber-300 border border-amber-600 shadow'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              🥪 Starter
+              🥪 1. First Hire
             </button>
             <button
               onClick={() => {
-                setSelectedCompanyKey('PROFITABLE_GROWTH');
+                setSelectedCompanyKey('STAGE_2_OFFICE_SPACE');
                 setSelectedStepIndex(0);
                 setIsTimeAdvanced(false);
                 resetExecution();
               }}
               className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
-                selectedCompanyKey === 'PROFITABLE_GROWTH'
+                selectedCompanyKey === 'STAGE_2_OFFICE_SPACE' || selectedCompanyKey === 'PROFITABLE_GROWTH'
+                  ? 'bg-blue-950 text-cyan-300 border border-cyan-500 shadow'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              🏢 2. Office Space
+            </button>
+            <button
+              onClick={() => {
+                setSelectedCompanyKey('STAGE_3_FLEET_SCALING');
+                setSelectedStepIndex(0);
+                setIsTimeAdvanced(false);
+                resetExecution();
+              }}
+              className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
+                selectedCompanyKey === 'STAGE_3_FLEET_SCALING' || selectedCompanyKey === 'ENTERPRISE_MA'
                   ? 'bg-emerald-950 text-emerald-300 border border-emerald-600 shadow'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
-              🚚 Growing
-            </button>
-            <button
-              onClick={() => {
-                setSelectedCompanyKey('DISTRESSED_DOWNTURN');
-                setSelectedStepIndex(0);
-                setIsTimeAdvanced(false);
-                resetExecution();
-              }}
-              className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
-                selectedCompanyKey === 'DISTRESSED_DOWNTURN'
-                  ? 'bg-rose-950 text-rose-300 border border-rose-600 shadow'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              ⚠️ Distressed
-            </button>
-            <button
-              onClick={() => {
-                setSelectedCompanyKey('ENTERPRISE_MA');
-                setSelectedStepIndex(0);
-                setIsTimeAdvanced(false);
-                resetExecution();
-              }}
-              className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all ${
-                selectedCompanyKey === 'ENTERPRISE_MA'
-                  ? 'bg-purple-950 text-purple-300 border border-purple-600 shadow'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              🧬 M&A Buyout
+              🚚 3. EV Fleet
             </button>
           </div>
 

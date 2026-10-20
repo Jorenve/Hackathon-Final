@@ -28,7 +28,11 @@ export default function Header({
   isTimeAdvanced,
   setIsTimeAdvanced,
   executionState, 
-  resetExecution 
+  resetExecution,
+  onOpenMarketingModal,
+  onOpenDecisionEngineModal,
+  onToggleKateChat,
+  isKateChatOpen
 }) {
   const currentCompany = COMPANIES[selectedCompanyKey];
   const thinking = ALGORITHM_THINKING_MODELS[selectedCompanyKey] || ALGORITHM_THINKING_MODELS.STARTER;
@@ -61,83 +65,68 @@ export default function Header({
             </div>
           </div>
 
-          {/* COMPANY / PERSONA SELECTOR (Mandatory New Feature) */}
-          <div className="flex items-center bg-slate-950 p-1 rounded-2xl border border-slate-800 shadow-inner">
-            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider px-2 hidden sm:inline">
-              Company:
+          {/* ONE CONTINUOUS LIFECYCLE STORY: Small -> Middle -> Big */}
+          <div className="flex items-center bg-slate-950 p-1 rounded-2xl border border-slate-800 shadow-inner flex-shrink-0">
+            <span className="text-[10px] text-cyan-400 font-bold uppercase tracking-wider px-2 hidden sm:inline whitespace-nowrap">
+              Story:
             </span>
             <div className="flex items-center space-x-1 overflow-x-auto">
               
-              {/* Company 1: Starter */}
+              {/* Stage 1: First Hire */}
               <button
                 onClick={() => {
-                  setSelectedCompanyKey('STARTER');
+                  setSelectedCompanyKey('STAGE_1_FIRST_HIRE');
                   setIsTimeAdvanced(false);
                   resetExecution();
                 }}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
-                  selectedCompanyKey === 'STARTER'
-                    ? 'bg-amber-950/80 text-amber-300 border border-amber-600 shadow-md'
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0 ${
+                  selectedCompanyKey === 'STAGE_1_FIRST_HIRE' || selectedCompanyKey === 'STARTER'
+                    ? 'bg-amber-950/90 text-amber-300 border border-amber-500 shadow-md ring-1 ring-amber-500/30'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
-                title="Starter SME: First Employee Milestone"
+                title="Stage 1 (Small): First Hire Milestone & Statutory Accident Protection"
               >
-                <span>🥪</span>
-                <span className="hidden md:inline">Starter SME</span>
+                <span className="text-sm">🥪</span>
+                <span className="hidden md:inline font-semibold">1. First Hire</span>
+                <span className="text-[10px] text-slate-500 hidden xl:inline font-normal">(Small)</span>
               </button>
 
-              {/* Company 2: Profitable Growth */}
+              {/* Stage 2: Commercial Office & Kitchen */}
               <button
                 onClick={() => {
-                  setSelectedCompanyKey('PROFITABLE_GROWTH');
+                  setSelectedCompanyKey('STAGE_2_OFFICE_SPACE');
                   setIsTimeAdvanced(false);
                   resetExecution();
                 }}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
-                  selectedCompanyKey === 'PROFITABLE_GROWTH'
-                    ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-600 shadow-md'
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0 ${
+                  selectedCompanyKey === 'STAGE_2_OFFICE_SPACE' || selectedCompanyKey === 'PROFITABLE_GROWTH'
+                    ? 'bg-blue-950/90 text-cyan-300 border border-cyan-500 shadow-md ring-1 ring-cyan-500/30'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
-                title="Profitable Mid-Market: Fleet & Warehouse Expansion"
+                title="Stage 2 (Middle): Dok Noord Commercial Space, Rental Guarantee & Fit-Out Loan"
               >
-                <span>🚚</span>
-                <span className="hidden md:inline">Profitable Mid-Market</span>
+                <span className="text-sm">🏢</span>
+                <span className="hidden md:inline font-semibold">2. Office & Kitchen</span>
+                <span className="text-[10px] text-slate-500 hidden xl:inline font-normal">(Middle)</span>
               </button>
 
-              {/* Company 3: Distressed Downturn */}
+              {/* Stage 3: Fleet & Regional Expansion */}
               <button
                 onClick={() => {
-                  setSelectedCompanyKey('DISTRESSED_DOWNTURN');
+                  setSelectedCompanyKey('STAGE_3_FLEET_SCALING');
                   setIsTimeAdvanced(false);
                   resetExecution();
                 }}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
-                  selectedCompanyKey === 'DISTRESSED_DOWNTURN'
-                    ? 'bg-rose-950/80 text-rose-300 border border-rose-600 shadow-md'
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0 ${
+                  selectedCompanyKey === 'STAGE_3_FLEET_SCALING' || selectedCompanyKey === 'ENTERPRISE_MA'
+                    ? 'bg-emerald-950/90 text-emerald-300 border border-emerald-500 shadow-md ring-1 ring-emerald-500/30'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
-                title="Distressed SME: Cash Crunch & Factoring Rescue"
+                title="Stage 3 (Big): EV Fleet Electrification, MoveSmart Charging & Green Grants"
               >
-                <span>⚠️</span>
-                <span className="hidden md:inline">Loss-Making Crisis</span>
-              </button>
-
-              {/* Company 4: Enterprise M&A */}
-              <button
-                onClick={() => {
-                  setSelectedCompanyKey('ENTERPRISE_MA');
-                  setIsTimeAdvanced(false);
-                  resetExecution();
-                }}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center space-x-1.5 whitespace-nowrap ${
-                  selectedCompanyKey === 'ENTERPRISE_MA'
-                    ? 'bg-purple-950/80 text-purple-300 border border-purple-600 shadow-md'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                }`}
-                title="Large Enterprise: M&A Competitor Acquisition"
-              >
-                <span>🧬</span>
-                <span className="hidden md:inline">Enterprise M&A</span>
+                <span className="text-sm">🚚</span>
+                <span className="hidden md:inline font-semibold">3. EV Fleet</span>
+                <span className="text-[10px] text-slate-500 hidden xl:inline font-normal">(Big)</span>
               </button>
             </div>
           </div>
@@ -194,55 +183,91 @@ export default function Header({
       </div>
 
       {/* SECONDARY TIME CONTROL BANNER ("Advance Time to Predicted Event") */}
-      <div className="bg-slate-950/80 border-t border-slate-800 px-4 py-2 text-xs flex flex-col sm:flex-row items-center justify-between gap-2">
-        <div className="flex items-center space-x-3 overflow-x-auto min-w-max">
-          <div className="flex items-center space-x-1.5 text-white font-bold">
-            <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+      <div className="bg-slate-950/80 border-t border-slate-800 px-4 py-2.5 text-xs flex flex-col md:flex-row items-center justify-between gap-2.5">
+        <div className="flex items-center space-x-3 overflow-x-auto min-w-max flex-shrink-0">
+          <div className="flex items-center space-x-1.5 text-white font-bold whitespace-nowrap">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
             <span>{currentCompany.name}</span>
             <span className="text-slate-500 font-normal">({currentCompany.sector} • {currentCompany.headcount})</span>
           </div>
 
-          <span className="text-slate-600">•</span>
+          <span className="text-slate-600 hidden sm:inline">•</span>
           
-          <div className="flex items-center space-x-1 text-slate-400">
-            <Clock className="w-3 h-3 text-cyan-400" />
+          <div className="flex items-center space-x-1.5 text-slate-400 whitespace-nowrap">
+            <Clock className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
             <span>Timeline:</span>
             <strong className="text-white font-mono">
               {isTimeAdvanced ? currentCompany.predictedEvent.date : currentCompany.normalState.date}
             </strong>
           </div>
 
-          <span className="text-slate-600">•</span>
+          <span className="text-slate-600 hidden sm:inline">•</span>
 
           {/* Dynamic Algorithmic Confidence Pill */}
-          <div className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-xl border text-[11px] ${
+          <div className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-xl border text-[11px] whitespace-nowrap ${
             hasCrossedThreshold 
               ? 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300 shadow-sm shadow-emerald-500/20' 
               : 'bg-amber-950/70 border-amber-500/40 text-amber-300'
           }`}>
-            <span className={`w-2 h-2 rounded-full ${hasCrossedThreshold ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
+            <span className={`w-2 h-2 rounded-full flex-shrink-0 ${hasCrossedThreshold ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
             <span className="font-semibold text-slate-300">Kate Confidence:</span>
             <span className="font-mono font-black text-xs">
               {currentConfidence.toFixed(1)}%
             </span>
-            <span className="text-[10px] text-slate-400 hidden lg:inline">
-              ({hasCrossedThreshold ? '≥85% Threshold: Prompt Active' : '<85%: Silent Observation'})
+            <span className="text-[10px] text-slate-400 hidden xl:inline">
+              ({hasCrossedThreshold ? '≥85% Active' : '<85% Silent'})
             </span>
           </div>
         </div>
 
-        {/* TIME ADVANCE / REWIND BUTTON (Central Requirement) */}
-        <div className="flex items-center space-x-2">
+        {/* TIME ADVANCE / REWIND & BRIEFING BUTTONS */}
+        <div className="flex items-center space-x-2 flex-wrap justify-end">
+          
+          {/* Kate Chat Toggle */}
+          <button
+            onClick={onToggleKateChat}
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border whitespace-nowrap ${
+              isKateChatOpen 
+                ? 'bg-kbc-sky text-slate-950 border-white shadow-md' 
+                : 'bg-slate-900 hover:bg-slate-800 text-cyan-300 border-cyan-500/30'
+            }`}
+            title="Toggle Kate Conversational Assistant"
+          >
+            <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
+            <span>Kate Copilot</span>
+          </button>
+
+          {/* Autonomous Decision Engine Inspector (For Financial, Risk & Branch Jury) */}
+          <button
+            onClick={onOpenDecisionEngineModal}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 shadow-sm transition-all whitespace-nowrap"
+            title="Inspect Algorithmic Decision Engine (Risk, Financial & Underwriting Models)"
+          >
+            <Cpu className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+            <span className="hidden sm:inline">Decision Engine</span>
+            <span className="sm:hidden">Engine</span>
+          </button>
+
+          {/* Marketing Parameters Briefing Modal */}
+          <button
+            onClick={onOpenMarketingModal}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/40 transition-all whitespace-nowrap"
+            title="Inspect Marketing Audience Parameters & Commercial LTV Model"
+          >
+            <Award className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+            <span className="hidden sm:inline">Marketing</span>
+          </button>
+
           {!isTimeAdvanced ? (
             <button
               onClick={() => {
                 setIsTimeAdvanced(true);
                 resetExecution();
               }}
-              className="flex items-center space-x-1.5 px-3 py-1 rounded-xl text-xs font-extrabold bg-gradient-to-r from-cyan-400 to-kbc-sky text-slate-950 shadow-md shadow-cyan-400/20 hover:scale-[1.02] transition-all"
+              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl text-xs font-extrabold bg-gradient-to-r from-cyan-400 to-kbc-sky text-slate-950 shadow-md shadow-cyan-400/20 hover:scale-[1.02] transition-all whitespace-nowrap"
             >
-              <FastForward className="w-3.5 h-3.5 fill-current" />
-              <span>Advance Time to Predicted Event ({currentCompany.predictedEvent.timeOffset})</span>
+              <FastForward className="w-3.5 h-3.5 fill-current flex-shrink-0" />
+              <span>Advance Time ({currentCompany.predictedEvent.timeOffset})</span>
             </button>
           ) : (
             <button
@@ -250,10 +275,10 @@ export default function Header({
                 setIsTimeAdvanced(false);
                 resetExecution();
               }}
-              className="flex items-center space-x-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all"
+              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all whitespace-nowrap"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>Rewind to Present (Normal State)</span>
+              <RotateCcw className="w-3.5 h-3.5 flex-shrink-0" />
+              <span>Rewind</span>
             </button>
           )}
         </div>

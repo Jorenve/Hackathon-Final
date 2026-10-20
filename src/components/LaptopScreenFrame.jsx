@@ -34,7 +34,7 @@ export default function LaptopScreenFrame({
             <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
             <span className="ml-2 font-mono text-[11px] text-slate-400 hidden sm:inline">
-              KBC Business Dashboard Web • Touch Corporate v4.2
+              KBC Business Dashboard Web • Touch Corporate
             </span>
           </div>
 
@@ -42,7 +42,7 @@ export default function LaptopScreenFrame({
           <div className="flex items-center space-x-1.5 px-3 py-0.5 rounded-full bg-slate-900 border border-slate-700/80">
             <span className="w-2 h-2 rounded-full bg-slate-700"></span>
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span className="text-[10px] font-mono text-cyan-300 font-medium hidden md:inline">Kate AI Connected</span>
+            <span className="text-[10px] font-mono text-cyan-300 font-medium hidden md:inline">Kate Connected</span>
           </div>
 
           <div className="flex items-center space-x-3 text-slate-400 font-mono text-[11px]">
@@ -105,7 +105,7 @@ export default function LaptopScreenFrame({
                 <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-300 flex items-center justify-center">
                   <Sparkles className="w-3 h-3 text-slate-900" />
                 </div>
-                <span>Kate Syndicate AI</span>
+                <span>Kate Copilot</span>
                 {isKateActive && (
                   <span className="px-1.5 py-0.2 bg-slate-900 text-cyan-300 text-[10px] rounded-full font-mono">
                     Event Ready

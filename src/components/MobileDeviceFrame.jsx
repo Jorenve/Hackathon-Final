@@ -32,7 +32,7 @@ export default function MobileDeviceFrame({ children, onKateClick, isKateActive 
           {/* Dynamic Island / Notch */}
           <div className="w-24 h-4 bg-black rounded-full mx-auto -mt-0.5 flex items-center justify-center space-x-1.5 shadow-inner">
             <div className="w-2 h-2 rounded-full bg-cyan-400/80 animate-pulse" />
-            <span className="text-[9px] font-mono text-cyan-300 font-medium">Kate AI</span>
+            <span className="text-[9px] font-mono text-cyan-300 font-medium">Kate</span>
           </div>
 
           <div className="flex items-center space-x-1.5 text-slate-200">

@@ -17,7 +17,9 @@ import {
   Minimize2,
   Maximize2,
   Info,
-  DollarSign
+  DollarSign,
+  FastForward,
+  Bell
 } from 'lucide-react';
 
 export default function KateChatCopilot({ 
@@ -25,59 +27,85 @@ export default function KateChatCopilot({
   activeChapterIndex, 
   onSelectChapter, 
   totalChapters,
+  isTimeAdvanced = false,
+  onAdvanceTime,
+  onRewindTime,
   onExecuteDomino, 
   executionState, 
   onResetExecution,
   onOpenMarketingModal,
-  onFocusDashboard
+  onFocusDashboard,
+  onClose
 }) {
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
 
-  // Initialize messages when chapter changes
+  // Update messages based on whether time is advanced or at baseline
   useEffect(() => {
     setIsTyping(true);
     setMessages([]);
 
-    const timer1 = setTimeout(() => {
-      setMessages([
-        {
-          id: 1,
-          sender: 'kate',
-          text: currentChapter.kateConversation.initialGreeting
-        }
-      ]);
-
-      const timer2 = setTimeout(() => {
-        setMessages(prev => [
-          ...prev,
+    if (!isTimeAdvanced) {
+      // BASELINE STATE: Before event trigger, Kate is in silent monitoring
+      const timer = setTimeout(() => {
+        setMessages([
+          {
+            id: 1,
+            sender: 'kate',
+            text: `👋 Hi Lucas, I'm Kate. I'm quietly monitoring your business telemetry, Peppol invoices, and accounts in the background.`
+          },
           {
             id: 2,
             sender: 'kate',
-            text: currentChapter.kateConversation.coreInsight
+            text: `Operating telemetry is currently normal. Confidence is at 42% (below our strict 85% action threshold). To simulate the next business milestone and test our automated syndication, fast-forward time below.`,
+            isBaselinePrompt: true
+          }
+        ]);
+        setIsTyping(false);
+      }, 300);
+
+      return () => clearTimeout(timer);
+    } else {
+      // ADVANCED STATE: Event Triggered! Fast-forward has happened, Kate jumps in with help!
+      const timer1 = setTimeout(() => {
+        setMessages([
+          {
+            id: 1,
+            sender: 'kate',
+            text: `🔔 Lucas, I've found something to help your business! We just detected an important operational inflection point.`,
+            isAlert: true
           }
         ]);
 
-        const timer3 = setTimeout(() => {
+        const timer2 = setTimeout(() => {
           setMessages(prev => [
             ...prev,
             {
-              id: 3,
+              id: 2,
               sender: 'kate',
-              text: `${currentChapter.kateConversation.proposal} ${currentChapter.kateConversation.question}`,
-              hasActions: true
+              text: currentChapter.kateConversation.coreInsight
             }
           ]);
-          setIsTyping(false);
-        }, 700);
-      }, 700);
-    }, 400);
 
-    return () => {
-      clearTimeout(timer1);
-    };
-  }, [currentChapter.id]);
+          const timer3 = setTimeout(() => {
+            setMessages(prev => [
+              ...prev,
+              {
+                id: 3,
+                sender: 'kate',
+                text: `${currentChapter.kateConversation.proposal} ${currentChapter.kateConversation.question}`,
+                hasActions: true
+              }
+            ]);
+            setIsTyping(false);
+          }, 600);
+        }, 600);
+      }, 350);
+
+      return () => clearTimeout(timer1);
+    }
+  }, [currentChapter.id, isTimeAdvanced]);
 
   // When execution completes, add celebratory message
   useEffect(() => {
@@ -95,23 +123,41 @@ export default function KateChatCopilot({
   }, [executionState.isComplete]);
 
   return (
-    <div className="bg-slate-900 border-2 border-kbc-sky/70 rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300">
+    <div className={`bg-slate-900 border-2 rounded-3xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300 ${
+      isTimeAdvanced 
+        ? 'border-kbc-sky/80 ring-2 ring-cyan-500/20' 
+        : 'border-slate-800'
+    }`}>
       
       {/* Top Header of Kate Copilot */}
-      <div className="bg-gradient-to-r from-kbc-blue via-[#002855] to-kbc-blue px-4 py-3 flex items-center justify-between border-b border-kbc-sky/40">
+      <div className={`px-4 py-3 flex items-center justify-between border-b transition-colors ${
+        isTimeAdvanced 
+          ? 'bg-gradient-to-r from-kbc-blue via-[#002855] to-kbc-blue border-kbc-sky/40' 
+          : 'bg-slate-950 border-slate-800'
+      }`}>
         <div className="flex items-center space-x-3">
           <div className="relative">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-400 to-blue-500 flex items-center justify-center font-black text-slate-950 text-sm shadow-md">
-              <Sparkles className="w-5 h-5 text-slate-950" />
+            <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm shadow-md transition-all ${
+              isTimeAdvanced 
+                ? 'bg-gradient-to-tr from-cyan-400 to-blue-500 text-slate-950 ring-2 ring-cyan-400/40' 
+                : 'bg-slate-800 text-slate-300'
+            }`}>
+              <Sparkles className="w-5 h-5 text-current" />
             </div>
-            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full animate-pulse" />
+            <span className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 border-2 border-slate-900 rounded-full ${
+              isTimeAdvanced ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
+            }`} />
           </div>
 
           <div>
             <div className="flex items-center space-x-2">
               <span className="font-extrabold text-white text-sm">Kate Assistant</span>
-              <span className="px-2 py-0.5 text-[10px] bg-cyan-900/80 text-cyan-200 border border-cyan-500/30 rounded-full font-mono font-bold">
-                Ecosystem Guide
+              <span className={`px-2 py-0.5 text-[10px] rounded-full font-mono font-bold border transition-all ${
+                isTimeAdvanced 
+                  ? 'bg-emerald-950 text-emerald-300 border-emerald-500/50 animate-pulse' 
+                  : 'bg-slate-850 text-slate-400 border-slate-700'
+              }`}>
+                {isTimeAdvanced ? '🔔 Opportunity Detected (96%)' : '🟢 Silent Monitoring (42%)'}
               </span>
             </div>
             <div className="text-[11px] text-cyan-200/80 flex items-center space-x-1">
@@ -130,6 +176,15 @@ export default function KateChatCopilot({
           >
             {isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
           </button>
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="p-1.5 text-slate-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+              title="Close Kate Copilot"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
         </div>
       </div>
 
@@ -143,14 +198,20 @@ export default function KateChatCopilot({
               <div key={msg.id} className="space-y-2">
                 <div className={`flex items-start space-x-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {msg.sender === 'kate' && (
-                    <div className="w-7 h-7 rounded-lg bg-kbc-sky/20 border border-kbc-sky/40 flex items-center justify-center text-xs text-kbc-sky font-bold flex-shrink-0 mt-0.5">
-                      K
+                    <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 ${
+                      msg.isAlert 
+                        ? 'bg-amber-400 text-slate-950 ring-2 ring-amber-300 animate-bounce' 
+                        : 'bg-kbc-sky/20 border border-kbc-sky/40 text-kbc-sky'
+                    }`}>
+                      {msg.isAlert ? '!' : 'K'}
                     </div>
                   )}
 
                   <div className={`p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed max-w-[85%] ${
                     msg.isSuccess 
                       ? 'bg-emerald-950/80 border border-emerald-500/60 text-emerald-200 shadow-md'
+                      : msg.isAlert
+                      ? 'bg-gradient-to-r from-amber-950/90 to-slate-900 border border-amber-500/60 text-amber-200 font-semibold shadow-lg'
                       : msg.sender === 'user'
                       ? 'bg-kbc-blue text-white ml-auto'
                       : 'bg-slate-900 border border-slate-800 text-slate-200 shadow-md'
@@ -159,7 +220,20 @@ export default function KateChatCopilot({
                   </div>
                 </div>
 
-                {/* Interactive Action Shortcuts directly attached to Kate's proposal */}
+                {/* Baseline Fast-Forward Action Shortcut (When viewed before advancing time) */}
+                {msg.isBaselinePrompt && onAdvanceTime && (
+                  <div className="pl-9 pt-1 animate-fadeIn">
+                    <button
+                      onClick={onAdvanceTime}
+                      className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-400 to-kbc-sky hover:from-kbc-sky hover:to-cyan-400 text-slate-950 font-black text-xs shadow-md shadow-cyan-400/20 hover:scale-[1.02] active:scale-98 transition-all flex items-center space-x-2"
+                    >
+                      <FastForward className="w-4 h-4 fill-current" />
+                      <span>Fast-Forward Time to Milestone ({currentChapter.timeline})</span>
+                    </button>
+                  </div>
+                )}
+
+                {/* Interactive Action Shortcuts directly attached to Kate's proposal (After event trigger) */}
                 {msg.hasActions && (
                   <div className="pl-9 pr-2 space-y-2 animate-fadeIn">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
@@ -228,7 +302,7 @@ export default function KateChatCopilot({
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce" style={{ animationDelay: '0ms' }} />
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce" style={{ animationDelay: '150ms' }} />
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-bounce" style={{ animationDelay: '300ms' }} />
-                <span>Kate is analyzing live Peppol telemetry...</span>
+                <span>{isTimeAdvanced ? "Kate is preparing your 1-click syndicate..." : "Kate is quietly analyzing live Peppol telemetry..."}</span>
               </div>
             )}
           </div>
@@ -238,7 +312,7 @@ export default function KateChatCopilot({
             <div className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 flex items-center justify-between">
               <span className="text-slate-400">Ask Kate about services, subsidies, or next steps...</span>
               <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-800/60">
-                Kate AI
+                Kate Copilot
               </span>
             </div>
 
