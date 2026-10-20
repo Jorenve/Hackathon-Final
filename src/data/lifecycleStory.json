@@ -1,0 +1,387 @@
+{
+  "company": {
+    "name": "Ghent Craft Foods BV",
+    "tradingName": "De Gentse Proeverij",
+    "founder": "Lucas De Clercq",
+    "vatNumber": "BE 0849.201.884",
+    "kboNumber": "0849.201.884",
+    "legalForm": "Besloten Vennootschap (BV)",
+    "primaryAccount": "BE71 7360 4912 8820 (KBC Business PRO)",
+    "headquarters": "Dok Noord 4B, 9000 Gent",
+    "relationshipManager": "Anouk De Smet (KBC Kouter Gent)",
+    "initialBalance": "€18,450.00"
+  },
+  "chapters": [
+    {
+      "id": "STAGE_1_FIRST_HIRE",
+      "chapterNumber": 1,
+      "badge": "Small SME (1-2 FTEs)",
+      "title": "The First Permanent Hire",
+      "subtitle": "Transitioning interim staff to statutory direct employment",
+      "timeline": "Month 3 • Early Growth Phase",
+      "date": "March 2026",
+      "balance": "€21,450.00",
+      "monthlyRevenue": "€18,200 / mo",
+      "headcount": "1 Founder + 1 Flexi-Worker",
+      
+      "signalSummary": {
+        "rawTelemetry": "4 consecutive monthly NOWJOBS interim invoices averaging €5,280/mo detected via Billit Peppol stream.",
+        "inflection": "Lucas is paying a 2.2x interim agency markup for his lead culinary assistant Sarah, creating an unnecessary €1,420/month cash leakage.",
+        "opportunity": "Transitioning Sarah to a permanent Joint Committee PC 302 contract saves €1,420/mo and qualifies for a €3,100 Flemish VLAIO wage grant."
+      },
+
+      "marketingAndAlgoParameters": {
+        "audienceFocus": "Marketing & Business Strategy Jury",
+        "acquisitionMechanism": "Zero-CAC Ingestion via continuous Billit Peppol stream & payroll debits",
+        "parametersRequired": [
+          {
+            "parameter": "Peppol Invoice Recurrence",
+            "source": "Billit / Peppol Access Point",
+            "value": "4 consecutive months from same interim VAT",
+            "algoWeight": "35%",
+            "marketingRelevance": "Confirms permanent workforce requirement without asking founder"
+          },
+          {
+            "parameter": "Gross Margin Leakage Arbitrage",
+            "source": "KBC Business Account debit velocity",
+            "value": "€1,420/month overpayment vs PC 302 direct hire",
+            "algoWeight": "30%",
+            "marketingRelevance": "Demonstrates immediate, tangible ROI of KBC relationship"
+          },
+          {
+            "parameter": "Flemish Subsidy Eligibility",
+            "source": "Vlaamse Overheid VLAIO / KBO API",
+            "value": "0 prior employees on ONSS register = €3,100 grant",
+            "algoWeight": "20%",
+            "marketingRelevance": "Captures government goodwill; reduces founder financial barrier"
+          },
+          {
+            "parameter": "Statutory Labor Liability",
+            "source": "Belgian Labor Code Art. 49",
+            "value": "Mandatory Day-1 Occupational Accident Insurance",
+            "algoWeight": "15%",
+            "marketingRelevance": "Anchors high-margin KBC core insurance with zero competition"
+          }
+        ],
+        "kbcCommercialImpact": {
+          "kbcCoreProductsSold": "Occupational Accident Insurance + KBC Team Protect + KBC Business PRO",
+          "kbc5YearLTV": "€9,850 in insurance premiums & deposits (vs €50 one-off referral fee)",
+          "stickiness": "Employer payroll account locked to KBC with 94% retention"
+        }
+      },
+
+      "kateConversation": {
+        "initialGreeting": "👋 Dag Lucas! I've been quietly analyzing your kitchen operations and Peppol invoices.",
+        "coreInsight": "Over the last 4 months, you paid €5,280/month to NOWJOBS for Sarah. That's a 2.2x agency markup.",
+        "proposal": "If we hire Sarah permanently under Joint Committee PC 302, you will save €1,420 every month, and I verified that Ghent Craft Foods qualifies for a €3,100 Flemish Region wage subsidy.",
+        "kbcAction": "I have pre-assembled your Liantis employment agreement, registered your ONSS employer profile, auto-bound your mandatory KBC Occupational Accident Insurance, and prepared the Dimona IN filing.",
+        "question": "Would you like me to execute this complete bundle for you in 1 click?",
+        "quickReplies": [
+          "✨ Review 1-Click First Hire Bundle",
+          "🔍 What are the exact savings?",
+          "⚡ Run 1-Click Domino Execution",
+          "📊 Open KBC Business Dashboard"
+        ]
+      },
+
+      "actionCard": {
+        "title": "Hire Sarah Permanently & Save €1,420/Month",
+        "headline": "Pre-assembled Joint Committee PC 302 contract, Dimona filing, KBC Accident Insurance & €3,100 VLAIO grant.",
+        "netImpact": "+€1,420/mo Net Savings • €3,100 Flemish Grant • 100% Statutory Compliant",
+        "upfrontCost": "€0 Upfront Cash Impact",
+        "ctaText": "Execute 1-Click Employment via itsme®"
+      },
+
+      "dominoSteps": [
+        {
+          "stepNumber": "01",
+          "label": "Government & Employment",
+          "title": "Liantis Contract & ONSS Profile Creation",
+          "partner": "Liantis Sociaal Secretariaat (Swappable)",
+          "kbcRole": "KBC Escrow guarantees first payroll clearance",
+          "productName": "Human Capital Solutions & Boostpack",
+          "latency": "180ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "02",
+          "label": "Government Filing",
+          "title": "Instant Dimona IN Statutory Declaration",
+          "partner": "Vlaamse Overheid & eBox Gateway",
+          "kbcRole": "Direct API submission via KBC Partner Hub",
+          "productName": "eBox & Digital signatures and powers of attorney",
+          "latency": "240ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "03",
+          "label": "KBC Core Protection",
+          "title": "Auto-Binding Occupational Accident Insurance",
+          "partner": "KBC Verzekeringen (Core Banking)",
+          "kbcRole": "Pre-underwritten mandatory statutory coverage",
+          "productName": "Occupational accident insurance & KBC Team Protect",
+          "latency": "140ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "04",
+          "label": "Regional Subsidy Grant",
+          "title": "VLAIO €3,100 Wage Subsidy Activation",
+          "partner": "VLAIO (Vlaams Agentschap Innoveren & Ondernemen)",
+          "kbcRole": "Direct deduction from quarterly social security debit",
+          "productName": "Working capital forecasts & Tax advice for SMEs",
+          "latency": "290ms",
+          "status": "Queued"
+        }
+      ]
+    },
+
+    {
+      "id": "STAGE_2_OFFICE_SPACE",
+      "chapterNumber": 2,
+      "badge": "Middle Growth (3-10 FTEs)",
+      "title": "First Commercial Office & Production Kitchen",
+      "subtitle": "Dok Noord Ghent commercial lease, rental guarantee escrow & fit-out loan",
+      "timeline": "Month 9 • Scaling Operations",
+      "date": "September 2026",
+      "balance": "€48,200.00",
+      "monthlyRevenue": "€36,400 / mo",
+      "headcount": "Founder + 4 Full-Time Staff",
+
+      "signalSummary": {
+        "rawTelemetry": "Catering order volumes up +180% on Billit; draft commercial lease PDF for Dok Noord 4B (320m²) ingested via Kate Document Scanner.",
+        "inflection": "Business has outgrown home prep facility. Signing a commercial lease requires 3 months cash deposit (€8,400), commercial fire/tenant insurance, and €85,000 for culinary fit-out equipment.",
+        "opportunity": "KBC pre-approves an €8,400 Rental Guarantee in KBC Escrow (so Lucas keeps his working cash), pre-underwrites an €85,000 SME Investment Loan at 3.65%, and binds mandatory Office & Building Insurance."
+      },
+
+      "marketingAndAlgoParameters": {
+        "audienceFocus": "Marketing & Business Strategy Jury",
+        "acquisitionMechanism": "Integration with Housing & Commercial Real Estate Ecosystem (Setle, De Immowinkel, Immoscoop)",
+        "parametersRequired": [
+          {
+            "parameter": "Cashflow Debt Service Coverage Ratio (DSCR)",
+            "source": "KBC Business PRO transaction history",
+            "value": "2.4x coverage on projected €2,800/mo rent",
+            "algoWeight": "35%",
+            "marketingRelevance": "Instant loan pre-underwriting with zero branch paperwork"
+          },
+          {
+            "parameter": "Commercial Lease Document Extraction",
+            "source": "Kate Document Scanner / Peppol draft",
+            "value": "Dok Noord Ghent (320m², 9-year commercial lease)",
+            "algoWeight": "30%",
+            "marketingRelevance": "Proactive detection before tenant signs with a broker"
+          },
+          {
+            "parameter": "Property Valuation & EPC Compliance",
+            "source": "De Immowinkel / Immoscoop real estate API",
+            "value": "Commercial EPC Label B pre-verified",
+            "algoWeight": "20%",
+            "marketingRelevance": "Connects housing ecosystem partners into business workflow"
+          },
+          {
+            "parameter": "Tenant Liability & Fire Risk",
+            "source": "Flemish Commercial Lease Act (Handelshuur)",
+            "value": "Mandatory tenant fire & water damage coverage",
+            "algoWeight": "15%",
+            "marketingRelevance": "Cross-sells high-margin property policy seamlessly"
+          }
+        ],
+        "kbcCommercialImpact": {
+          "kbcCoreProductsSold": "KBC Rental Guarantee + Office and Building Insurance + €85,000 SME Investment Loan",
+          "kbc5YearLTV": "€14,600 in net interest margin and recurring property insurance",
+          "stickiness": "Commercial mortgage/property lock creates a 10-year bank relationship"
+        }
+      },
+
+      "kateConversation": {
+        "initialGreeting": "🎉 Proficiat Lucas! Your catering revenue surged +180% over the summer.",
+        "coreInsight": "I reviewed the draft commercial lease for Dok Noord 4B (320m² production kitchen + tasting room). The landlord requires an €8,400 deposit and commercial tenant insurance.",
+        "proposal": "Instead of locking up €8,400 of your working capital, I've pre-approved a KBC Digital Rental Guarantee in Escrow. I also pre-underwrote an €85,000 SME Investment Loan for your refrigeration & prep line at 3.65%, and bundled your KBC Office & Building Insurance.",
+        "kbcAction": "With 1 click, the landlord receives a verified digital bank guarantee, the €85k fit-out loan is deposited into your operating account, and your Dok Noord premises are fully insured from day 1.",
+        "question": "Do you want Kate to lock in the Dok Noord expansion bundle?",
+        "quickReplies": [
+          "🏢 Review Dok Noord Office Bundle",
+          "📑 Inspect Rental Guarantee & Loan",
+          "⚡ Execute Dok Noord in 1 Click",
+          "📊 Open KBC Business Dashboard"
+        ]
+      },
+
+      "actionCard": {
+        "title": "Secure Dok Noord Commercial Space & €85k Fit-Out",
+        "headline": "Digital Rental Guarantee in Escrow, €85,000 Investment Loan, and KBC Office & Building Insurance.",
+        "netImpact": "Dok Noord 320m² Secured • €8,400 Cash Preserved in Escrow • €85k Fit-Out Funded",
+        "upfrontCost": "€0 Out-of-Pocket (Guarantee replaces cash deposit)",
+        "ctaText": "Approve Dok Noord Lease & Funding via itsme®"
+      },
+
+      "dominoSteps": [
+        {
+          "stepNumber": "01",
+          "label": "KBC Escrow & Housing",
+          "title": "Digital Rental Guarantee Issuance (€8,400)",
+          "partner": "KBC Escrow (Housing Ecosystem)",
+          "kbcRole": "Locks guarantee without tying up operating liquidity",
+          "productName": "Rental guarantee & Rental Guarantee Widget",
+          "latency": "160ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "02",
+          "label": "KBC Core Lending",
+          "title": "€85,000 SME Investment Loan Clearance",
+          "partner": "KBC Corporate Credit Engine",
+          "kbcRole": "3.65% fixed rate 5-year facility for kitchen fit-out",
+          "productName": "Investment loan & Straight Loans",
+          "latency": "220ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "03",
+          "label": "KBC Core Protection",
+          "title": "Office and Building Insurance Auto-Binding",
+          "partner": "KBC Verzekeringen (Business Protection)",
+          "kbcRole": "Full commercial tenant liability, water, and fire coverage",
+          "productName": "Office and building insurance & Business liability",
+          "latency": "140ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "04",
+          "label": "Housing Ecosystem",
+          "title": "De Immowinkel EPC & Setle Energy Grant Filing",
+          "partner": "De Immowinkel & Setle (Housing Ecosystem)",
+          "kbcRole": "Auto-transmits commercial lease registration via eBox",
+          "productName": "Certificates and inspections - De Immowinkel",
+          "latency": "260ms",
+          "status": "Queued"
+        }
+      ]
+    },
+
+    {
+      "id": "STAGE_3_FLEET_SCALING",
+      "chapterNumber": 3,
+      "badge": "Scaling Enterprise (10-35 FTEs)",
+      "title": "Electric Fleet & Regional Expansion",
+      "subtitle": "3 refrigerated e-Transit vans, MoveSmart depot charging & scaling credit lines",
+      "timeline": "Month 18 • Regional Market Scaler",
+      "date": "June 2027",
+      "balance": "€112,400.00",
+      "monthlyRevenue": "€84,500 / mo",
+      "headcount": "Founder + 14 Full-Time Employees",
+
+      "signalSummary": {
+        "rawTelemetry": "45 daily cold-chain delivery drops across Flanders; third-party courier invoices hit €6,400/mo; diesel LEZ penalties in Ghent and Antwerp.",
+        "inflection": "Outsourced logistics are cutting gross margin by 7.5%, and diesel vehicles face Low Emission Zone bans.",
+        "opportunity": "In-housing logistics with 3 refrigerated electric e-Transits via KBC Car Loan Plus, smart Luminus MoveSmart depot charging, and claiming €12,600 in Flemish Clean Power Subsidies."
+      },
+
+      "marketingAndAlgoParameters": {
+        "audienceFocus": "Marketing & Business Strategy Jury",
+        "acquisitionMechanism": "Mobility Ecosystem & Autolease Asset Financing Rails",
+        "parametersRequired": [
+          {
+            "parameter": "Logistics Outsource Bleed",
+            "source": "Peppol courier invoices (DPD Fresh, PostNL)",
+            "value": "€6,400/month outsourced delivery cost",
+            "algoWeight": "40%",
+            "marketingRelevance": "Identifies clear cost substitution opportunity"
+          },
+          {
+            "parameter": "Electric Fleet TCO Arbitrage",
+            "source": "KBC Autolease / MoveSmart benchmark",
+            "value": "€0.14/kWh depot charging vs €1.78/L diesel",
+            "algoWeight": "30%",
+            "marketingRelevance": "+€2,450/month net bottom-line profit improvement"
+          },
+          {
+            "parameter": "Flemish Clean Power Grants",
+            "source": "Vlaams Klimaatfonds API",
+            "value": "3 × €4,200 = €12,600 zero-emission vehicle grant",
+            "algoWeight": "20%",
+            "marketingRelevance": "Government green policy leverage"
+          },
+          {
+            "parameter": "Working Capital Buffer Fit",
+            "source": "KBC Cash Pooling & Roll-Over lines",
+            "value": "€60,000 Roll-Over Line of Credit",
+            "algoWeight": "10%",
+            "marketingRelevance": "Protects against seasonal B2B payment lags"
+          }
+        ],
+        "kbcCommercialImpact": {
+          "kbcCoreProductsSold": "Car Loan Plus (3 e-Transits) + Electric car insurance + Roll-Over Line of Credit",
+          "kbc5YearLTV": "€24,800 in asset financing interest, fleet insurance, and credit facilities",
+          "stickiness": "Operating fleet and depot infrastructure integrated into KBC Mobility portal"
+        }
+      },
+
+      "kateConversation": {
+        "initialGreeting": "🚚 Incredible milestone, Lucas! Ghent Craft Foods is now shipping 45 corporate deliveries every day across Flanders.",
+        "coreInsight": "You spent €6,400 last month on third-party couriers, and diesel LEZ surcharges in Antwerp and Brussels are starting next quarter.",
+        "proposal": "I've structured an autonomous in-house fleet transition: 3 refrigerated Ford e-Transits via KBC Car Loan Plus, paired with 22kW Luminus MoveSmart depot charging, fleet insurance, and €12,600 in Flemish Clean Power Subsidies. Net cash improvement: +€2,450/month.",
+        "kbcAction": "With 1 click, KBC Autolease dispatches the vehicle order, Luminus schedules charger installation at Dok Noord, commercial fleet insurance is active, and €12,600 in subsidies are pre-claimed.",
+        "question": "Shall we scale your regional fleet in 1 click?",
+        "quickReplies": [
+          "🚚 Review Electric Fleet Bundle",
+          "⚡ View 4-Step Domino Node Graph",
+          "🔋 Execute Fleet Expansion in 1 Click",
+          "📊 Open KBC Business Dashboard"
+        ]
+      },
+
+      "actionCard": {
+        "title": "Deploy 3 Electric Refrigerated Vans & Save €2,450/Mo",
+        "headline": "KBC Car Loan Plus, Luminus MoveSmart depot charging, commercial fleet insurance & €12,600 clean power grants.",
+        "netImpact": "+€2,450/mo Net Savings • 3 e-Vans Deployed • €12,600 Flemish Green Grant",
+        "upfrontCost": "€0 Upfront Cash (100% asset financed via KBC)",
+        "ctaText": "Approve EV Fleet & Charging via itsme®"
+      },
+
+      "dominoSteps": [
+        {
+          "stepNumber": "01",
+          "label": "KBC Asset Financing",
+          "title": "KBC Car Loan Plus Fleet Funding (€160k)",
+          "partner": "KBC Autolease (Mobility Ecosystem)",
+          "kbcRole": "Pre-clears asset financing with zero personal collateral",
+          "productName": "Car Loan Plus & Electric car loan",
+          "latency": "170ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "02",
+          "label": "Mobility Partner Hub",
+          "title": "Luminus MoveSmart Depot 22kW Charging",
+          "partner": "MoveSmart & Luminus (Mobility Ecosystem)",
+          "kbcRole": "Automatic work order dispatch for Dok Noord depot",
+          "productName": "Manage a leased vehicle - MoveSmart and VAB",
+          "latency": "210ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "03",
+          "label": "KBC Core Protection",
+          "title": "Commercial Fleet & Liability Insurance",
+          "partner": "KBC Verzekeringen (Business Protection)",
+          "kbcRole": "Comprehensive fleet, goods-in-transit & driver coverage",
+          "productName": "Electric car insurance & Business liability",
+          "latency": "130ms",
+          "status": "Queued"
+        },
+        {
+          "stepNumber": "04",
+          "label": "Government Subsidy",
+          "title": "Flemish Clean Power Grants (€12,600)",
+          "partner": "Vlaams Klimaatfonds & eBox",
+          "kbcRole": "Automated digital claim submission via KBC Partner Hub",
+          "productName": "Application status webhooks & eBox",
+          "latency": "250ms",
+          "status": "Queued"
+        }
+      ]
+    }
+  ]
+}
