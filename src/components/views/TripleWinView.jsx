@@ -27,8 +27,8 @@ export default function TripleWinView() {
 
   // Interactive ROI Calculator States
   const [smeCount, setSmeCount] = useState(roiCalculatorDefaults.smeUserBase);
-  const [triggersPerYear, setTriggersPerYear] = useState(roiCalculatorDefaults.annualSyndicateTriggersPerSme);
-  const [avgBasket, setAvgBasket] = useState(roiCalculatorDefaults.avgSyndicateBasketEur);
+  const [triggersPerYear, setTriggersPerYear] = useState(roiCalculatorDefaults.annualOneClickTriggersPerSme);
+  const [avgBasket, setAvgBasket] = useState(roiCalculatorDefaults.avgOneClickBasketEur);
 
   // Computed Economics
   const totalAnnualVolume = smeCount * triggersPerYear * avgBasket;
@@ -104,7 +104,7 @@ export default function TripleWinView() {
             Legacy Referral Directory vs. High-Margin Core Banking & Insurance
           </h2>
           <p className="text-xs text-slate-300 mt-1 max-w-3xl">
-            Directory 1.0 treated KBC as an advertising billboard, earning an insignificant one-time referral fee. KBC OneClick Syndicate uses partner chaining as a Trojan Horse to sell KBC's highest-margin core products.
+            Directory 1.0 treated KBC as an advertising billboard, earning an insignificant one-time referral fee. KBC OneClick uses partner chaining as a Trojan Horse to sell KBC's highest-margin core products.
           </p>
         </div>
 
@@ -137,17 +137,17 @@ export default function TripleWinView() {
             <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <div className="text-sm font-bold text-cyan-300 flex items-center space-x-1.5">
                 <Landmark className="w-4 h-4 text-kbc-sky" />
-                <span>{HIGH_MARGIN_ECONOMICS.legacyComparison.newSyndicateCoreValue.label}</span>
+                <span>{HIGH_MARGIN_ECONOMICS.legacyComparison.newOneClickCoreValue.label}</span>
               </div>
               <span className="text-[10px] bg-cyan-950 text-cyan-300 border border-cyan-700/60 px-2 py-0.5 rounded font-mono">
-                Syndicate 2.0
+                OneClick 2.0
               </span>
             </div>
             <div className="text-3xl font-black text-emerald-400">
-              {HIGH_MARGIN_ECONOMICS.legacyComparison.newSyndicateCoreValue.amountEur}
+              {HIGH_MARGIN_ECONOMICS.legacyComparison.newOneClickCoreValue.amountEur}
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
-              {HIGH_MARGIN_ECONOMICS.legacyComparison.newSyndicateCoreValue.description}
+              {HIGH_MARGIN_ECONOMICS.legacyComparison.newOneClickCoreValue.description}
             </p>
             <div className="space-y-1 text-xs text-cyan-300 pt-2 border-t border-slate-800">
               <div>✓ Captures Primary KBC Business PRO Operating Account</div>
@@ -293,7 +293,7 @@ export default function TripleWinView() {
           {/* Slider 3 */}
           <div className="space-y-2 bg-slate-900 p-4 rounded-2xl border border-slate-800">
             <div className="flex justify-between text-xs">
-              <span className="text-slate-400">Avg Syndicate Basket:</span>
+              <span className="text-slate-400">Avg OneClick Basket:</span>
               <span className="font-bold text-white font-mono">€{avgBasket.toLocaleString()}</span>
             </div>
             <input

@@ -54,13 +54,13 @@ export default function Header({
             </div>
             <div className="hidden xl:block">
               <div className="flex items-center space-x-2">
-                <span className="text-base font-bold text-white tracking-tight">OneClick Syndicate</span>
+                <span className="text-base font-bold text-white tracking-tight">OneClick</span>
                 <span className="px-2 py-0.5 text-[10px] font-semibold bg-kbc-sky/15 text-kbc-sky border border-kbc-sky/30 rounded-full uppercase tracking-wider">
                   Ecosystem 2.0
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 font-medium">
-                Autonomous Blackbox Orchestration Powered by Kate
+                Autonomous Business Orchestration Powered by Kate
               </p>
             </div>
           </div>
@@ -135,38 +135,41 @@ export default function Header({
           <div className="flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 shadow-inner flex-shrink-0">
             <button
               onClick={() => setActiveView('customer')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 activeView === 'customer'
                   ? 'bg-kbc-sky text-slate-900 shadow-md shadow-kbc-sky/30 font-bold'
                   : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
               }`}
+              title="Customer Experience"
             >
-              <Smartphone className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline">Customer Mobile</span>
+              <Smartphone className="w-3.5 h-3.5 flex-shrink-0" />
+              <span className="hidden sm:inline">Customer</span>
             </button>
 
             <button
               onClick={() => setActiveView('architecture')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 activeView === 'architecture'
                   ? 'bg-kbc-sky text-slate-900 shadow-md shadow-kbc-sky/30 font-bold'
                   : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
               }`}
+              title="Under the Hood Architecture"
             >
-              <Cpu className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline">Under-the-Hood API</span>
+              <Cpu className="w-3.5 h-3.5 flex-shrink-0" />
+              <span className="hidden sm:inline">Engine</span>
             </button>
 
             <button
               onClick={() => setActiveView('triple_win')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                 activeView === 'triple_win'
                   ? 'bg-kbc-sky text-slate-900 shadow-md shadow-kbc-sky/30 font-bold'
                   : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
               }`}
+              title="Jury Triple Win Economics"
             >
-              <TrendingUp className="w-3.5 h-3.5" />
-              <span className="hidden lg:inline">Jury Triple-Win</span>
+              <TrendingUp className="w-3.5 h-3.5 flex-shrink-0" />
+              <span className="hidden sm:inline">Triple-Win</span>
             </button>
           </div>
 
@@ -183,19 +186,18 @@ export default function Header({
       </div>
 
       {/* SECONDARY TIME CONTROL BANNER ("Advance Time to Predicted Event") */}
-      <div className="bg-slate-950/80 border-t border-slate-800 px-4 py-2.5 text-xs flex flex-col md:flex-row items-center justify-between gap-2.5">
-        <div className="flex items-center space-x-3 overflow-x-auto min-w-max flex-shrink-0">
+      <div className="bg-slate-950/80 border-t border-slate-800 px-3 sm:px-4 py-2 text-xs flex flex-col md:flex-row items-center justify-between gap-2 overflow-x-auto">
+        <div className="flex items-center space-x-2 sm:space-x-3 overflow-x-auto min-w-max flex-shrink-0 w-full md:w-auto justify-between md:justify-start">
           <div className="flex items-center space-x-1.5 text-white font-bold whitespace-nowrap">
             <span className="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span>
-            <span>{currentCompany.name}</span>
-            <span className="text-slate-500 font-normal">({currentCompany.sector} • {currentCompany.headcount})</span>
+            <span className="truncate max-w-[140px] sm:max-w-none">{currentCompany.name}</span>
+            <span className="text-slate-500 font-normal hidden sm:inline">({currentCompany.sector})</span>
           </div>
 
           <span className="text-slate-600 hidden sm:inline">•</span>
           
-          <div className="flex items-center space-x-1.5 text-slate-400 whitespace-nowrap">
+          <div className="flex items-center space-x-1.5 text-slate-400 whitespace-nowrap text-[11px] sm:text-xs">
             <Clock className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-            <span>Timeline:</span>
             <strong className="text-white font-mono">
               {isTimeAdvanced ? currentCompany.predictedEvent.date : currentCompany.normalState.date}
             </strong>
@@ -204,13 +206,13 @@ export default function Header({
           <span className="text-slate-600 hidden sm:inline">•</span>
 
           {/* Dynamic Algorithmic Confidence Pill */}
-          <div className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-xl border text-[11px] whitespace-nowrap ${
+          <div className={`flex items-center space-x-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-xl border text-[11px] whitespace-nowrap ${
             hasCrossedThreshold 
               ? 'bg-emerald-950/80 border-emerald-500/50 text-emerald-300 shadow-sm shadow-emerald-500/20' 
               : 'bg-amber-950/70 border-amber-500/40 text-amber-300'
           }`}>
             <span className={`w-2 h-2 rounded-full flex-shrink-0 ${hasCrossedThreshold ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
-            <span className="font-semibold text-slate-300">Kate Confidence:</span>
+            <span className="font-semibold text-slate-300 hidden sm:inline">Kate Confidence:</span>
             <span className="font-mono font-black text-xs">
               {currentConfidence.toFixed(1)}%
             </span>
@@ -221,12 +223,12 @@ export default function Header({
         </div>
 
         {/* TIME ADVANCE / REWIND & BRIEFING BUTTONS */}
-        <div className="flex items-center space-x-2 flex-wrap justify-end">
+        <div className="flex items-center space-x-1.5 sm:space-x-2 w-full md:w-auto justify-between md:justify-end overflow-x-auto min-w-max">
           
           {/* Kate Chat Toggle */}
           <button
             onClick={onToggleKateChat}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border whitespace-nowrap ${
+            className={`flex items-center space-x-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all border whitespace-nowrap ${
               isKateChatOpen 
                 ? 'bg-kbc-sky text-slate-950 border-white shadow-md' 
                 : 'bg-slate-900 hover:bg-slate-800 text-cyan-300 border-cyan-500/30'
@@ -234,28 +236,27 @@ export default function Header({
             title="Toggle Kate Conversational Assistant"
           >
             <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
-            <span>Kate Copilot</span>
+            <span>Kate</span>
           </button>
 
-          {/* Autonomous Decision Engine Inspector (For Financial, Risk & Branch Jury) */}
+          {/* Autonomous Decision Engine Inspector */}
           <button
             onClick={onOpenDecisionEngineModal}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 shadow-sm transition-all whitespace-nowrap"
-            title="Inspect Algorithmic Decision Engine (Risk, Financial & Underwriting Models)"
+            className="flex items-center space-x-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 shadow-sm transition-all whitespace-nowrap"
+            title="Inspect Algorithmic Decision Engine"
           >
             <Cpu className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
-            <span className="hidden sm:inline">Decision Engine</span>
-            <span className="sm:hidden">Engine</span>
+            <span>Engine</span>
           </button>
 
           {/* Marketing Parameters Briefing Modal */}
           <button
             onClick={onOpenMarketingModal}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/40 transition-all whitespace-nowrap"
-            title="Inspect Marketing Audience Parameters & Commercial LTV Model"
+            className="flex items-center space-x-1 px-2.5 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/40 transition-all whitespace-nowrap"
+            title="Inspect Marketing Audience Parameters"
           >
             <Award className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
-            <span className="hidden sm:inline">Marketing</span>
+            <span>Marketing</span>
           </button>
 
           {!isTimeAdvanced ? (
@@ -264,10 +265,10 @@ export default function Header({
                 setIsTimeAdvanced(true);
                 resetExecution();
               }}
-              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl text-xs font-extrabold bg-gradient-to-r from-cyan-400 to-kbc-sky text-slate-950 shadow-md shadow-cyan-400/20 hover:scale-[1.02] transition-all whitespace-nowrap"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-extrabold bg-gradient-to-r from-cyan-400 to-kbc-sky text-slate-950 shadow-md shadow-cyan-400/20 hover:scale-[1.02] transition-all whitespace-nowrap"
             >
               <FastForward className="w-3.5 h-3.5 fill-current flex-shrink-0" />
-              <span>Advance Time ({currentCompany.predictedEvent.timeOffset})</span>
+              <span>Advance Time</span>
             </button>
           ) : (
             <button
@@ -275,7 +276,7 @@ export default function Header({
                 setIsTimeAdvanced(false);
                 resetExecution();
               }}
-              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all whitespace-nowrap"
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all whitespace-nowrap"
             >
               <RotateCcw className="w-3.5 h-3.5 flex-shrink-0" />
               <span>Rewind</span>

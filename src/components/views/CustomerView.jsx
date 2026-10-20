@@ -412,7 +412,7 @@ export default function CustomerView({
           {/* TWO COLUMN WIDE SCREEN LAYOUT */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
-            {/* Left 7 Columns: The 1-Click Syndicate Action Card */}
+            {/* Left 7 Columns: The OneClick Action Card */}
             <div className="lg:col-span-7 bg-slate-900/95 rounded-3xl border-2 border-kbc-sky/60 p-6 shadow-2xl relative space-y-5">
               
               {/* Kate's Direct Prompt Speech Bubble (Addressing User Feedback) */}
@@ -427,7 +427,7 @@ export default function CustomerView({
                       <span className="text-[10px] text-slate-500 font-mono">Confidence: {currentConfidence.toFixed(1)}%</span>
                     </div>
                     <p className="text-xs sm:text-sm text-white font-medium leading-relaxed">
-                      "I noticed your confidence score reached <strong className="text-emerald-400">{currentConfidence.toFixed(1)}%</strong> after analyzing your latest Peppol invoices and telemetry. <strong className="text-cyan-300 underline decoration-cyan-400">Do you want Kate to execute this complete bundle for you in 1 click?</strong>"
+                      "I noticed your confidence score reached <strong className="text-emerald-400">{currentConfidence.toFixed(1)}%</strong> after analyzing your latest Peppol invoices and telemetry. <strong className="text-cyan-300 underline decoration-cyan-400">Do you want Kate to execute this complete bundle for you in OneClick?</strong>"
                     </p>
                   </div>
                 </div>
@@ -436,7 +436,7 @@ export default function CustomerView({
               <div className="flex items-center justify-between pb-3 border-b border-slate-800 gap-2 flex-wrap">
                 <div className="flex items-center space-x-2 text-kbc-sky font-extrabold text-sm whitespace-nowrap">
                   <Zap className="w-5 h-5 fill-kbc-sky flex-shrink-0" />
-                  <span>KBC OneClick Syndicate Execution</span>
+                  <span>KBC OneClick Execution</span>
                 </div>
                 <span className="text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full flex items-center space-x-1.5 whitespace-nowrap">
                   <Landmark className="w-3.5 h-3.5 flex-shrink-0" />
@@ -488,7 +488,7 @@ export default function CustomerView({
                   <div className="bg-emerald-950/60 border border-emerald-500/60 rounded-2xl p-4 text-center space-y-2">
                     <div className="flex items-center justify-center space-x-2 text-emerald-400 font-black text-sm">
                       <CheckCircle2 className="w-5 h-5" />
-                      <span>Syndicate Fully Executed & Live!</span>
+                      <span>OneClick Bundle Fully Executed & Live!</span>
                     </div>
                     <p className="text-xs text-slate-300">
                       All partner work orders dispatched, legal filings confirmed, and core KBC accounts and insurances activated in sub-second latency.
@@ -716,7 +716,7 @@ export default function CustomerView({
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-white">Kate Assistant</h3>
-                  <p className="text-xs text-cyan-300">Syndicate Transparency Query</p>
+                  <p className="text-xs text-cyan-300">Partner Transparency Query</p>
                 </div>
               </div>
               <button onClick={() => setShowKateChatModal(false)} className="text-slate-400 hover:text-white text-sm">
@@ -750,7 +750,7 @@ export default function CustomerView({
               }}
               className="w-full py-2.5 bg-kbc-sky text-slate-900 rounded-xl text-xs font-bold hover:bg-cyan-300 transition-colors"
             >
-              Inspect Verified Syndicate Drawer →
+              Inspect Verified Partner Drawer →
             </button>
           </div>
         </div>

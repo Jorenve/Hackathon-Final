@@ -1,4 +1,4 @@
-// KBC OneClick Syndicate: Complete Multi-Company & Lifecycle Scenario Engine
+// KBC OneClick: Complete Multi-Company & Lifecycle Scenario Engine
 // Covers:
 // 1. Starter SME (Ghent Craft Foods BV) -> First Employee Milestone
 // 2. Profitable Mid-Market (Vanderbauwhede Logistics) -> Green Fleet & Warehouse Scaler
@@ -949,7 +949,7 @@ export const COMPANIES = {
           description: "KBC factors uncontested Peppol invoices, immediately depositing €184,000 cash into the operating account.",
           ecosystemPartner: "KBC Factoring Desk & Billit Gateway",
           kbcProduct: "Factoring and accounts receivable management & ComFin Touch",
-          apiEndpoint: "POST /v2/syndicate/factoring/emergency-advance",
+          apiEndpoint: "POST /v2/oneclick/factoring/emergency-advance",
           latency: "140ms",
           webhookPayload: {
             event: "FACTORING_CASH_DISBURSED",
@@ -1358,11 +1358,11 @@ export const COMPANIES = {
       timeOffset: "+9 Months Forward",
       date: "9 Months Later (July 2027)",
       triggerType: "ALGORITHM PREDICTION: M&A ACQUISITION OF COMPETITOR (BioGhent Labs BV)",
-      algorithmInsight: "Kate triangulated National Bank of Belgium (NBB) annual accounts filings, patent registries, and Peppol supplier streams. Target competitor 'BioGhent Labs BV' (whose founder is 64 years old) shows declining working capital but holds 3 valuable clinical patents. Kate’s algorithm calculates an accretive valuation of €3,200,000 (3.4x EBITDA) with 22.4% projected synergy ROI. KBC pre-packages the complete M&A Acquisition Syndicate.",
+      algorithmInsight: "Kate triangulated National Bank of Belgium (NBB) annual accounts filings, patent registries, and Peppol supplier streams. Target competitor 'BioGhent Labs BV' (whose founder is 64 years old) shows declining working capital but holds 3 valuable clinical patents. Kate’s algorithm calculates an accretive valuation of €3,200,000 (3.4x EBITDA) with 22.4% projected synergy ROI. KBC pre-packages the complete M&A Acquisition Bundle.",
 
       kateCard: {
         title: "Strategic M&A Opportunity: Acquire BioGhent Labs BV!",
-        headline: "Kate pre-assembled your €2.2M Syndicated Acquisition Loan, Due Diligence Audit, and Notarial LOI Escrow.",
+        headline: "Kate pre-assembled your €2.2M Acquisition Loan Facility, Due Diligence Audit, and Notarial LOI Escrow.",
         kpiImpact: "+€5.4M ARR Synergies | 22.4% Accretive ROI | Pre-Underwritten €2.2M Buyout Loan",
         cashflowImpact: {
           upfrontCost: "€1.0M Cash Equity + €2.2M KBC Acquisition Facility",
@@ -1375,7 +1375,7 @@ export const COMPANIES = {
           "Locks €320,000 Letter of Intent (LOI) Break-Fee in certified KBC Escrow",
           "Auto-binds €5,000,000 Directors' Liability & M&A Warranty Insurance (W&I)"
         ],
-        ctaText: "Approve M&A Acquisition Syndicate (itsme® Sign)"
+        ctaText: "Approve M&A Acquisition Bundle (itsme® Sign)"
       },
 
       dominoSteps: [
@@ -1384,7 +1384,7 @@ export const COMPANIES = {
           stepNumber: "01",
           label: "KBC Corporate Finance",
           title: "€2.2M Acquisition Buyout Loan Pre-Underwriting",
-          description: "KBC Corporate Banking pre-underwrites syndicated acquisition financing structured against target cashflow.",
+          description: "KBC Corporate Banking pre-underwrites acquisition financing structured against target cashflow.",
           ecosystemPartner: "KBC Corporate Finance & Investment Banking",
           kbcProduct: "Acquisition advice & Straight Loans",
           apiEndpoint: "POST /v3/corporate-finance/ma/acquisition-facility",
@@ -1407,7 +1407,7 @@ export const COMPANIES = {
           description: "KBC locks €320,000 in certified bilateral escrow, securing a 60-day exclusive negotiating period.",
           ecosystemPartner: "KBC Escrow Protocol & Berquin Notarissen",
           kbcProduct: "KBC Partner Hub & Digital signatures and powers of attorney",
-          apiEndpoint: "POST /v2/syndicate/escrow/ma-deposit-lock",
+          apiEndpoint: "POST /v2/oneclick/escrow/ma-deposit-lock",
           latency: "170ms",
           webhookPayload: {
             event: "MA_ESCROW_DEPOSIT_LOCKED",
@@ -1474,10 +1474,10 @@ export const COMPANIES = {
           alternativePartners: ["PwC SME M&A Network", "Moore Corporate Finance", "BDO M&A Advisors"]
         },
         {
-          role: "Acquisition Financing Syndicate",
+          role: "Acquisition Financing Facility",
           defaultPartner: "KBC Corporate Finance Desk",
           kbcService: "Straight Loans & Roll-Over Line of Credit",
-          dataShared: "Syndicated credit term-sheet, corporate covenant monitoring",
+          dataShared: "Corporate credit term-sheet, corporate covenant monitoring",
           canSwap: false,
           note: "Lead Arranger: KBC Bank NV"
         },
@@ -1526,7 +1526,7 @@ export const NON_CLIENT_ACQUISITION_RAILS = [
     id: "accountant_api_bridge",
     title: "3. Certified Accountant Portal (Silverfin / Yuki / Odoo)",
     shortName: "Accountant Hub",
-    description: "Belgian accountants (ITAA) recommend KBC OneClick Syndicate directly inside their accounting software, eliminating manual notary, social secretariat, and bank guarantee paperwork.",
+    description: "Belgian accountants (ITAA) recommend KBC OneClick directly inside their accounting software, eliminating manual notary, social secretariat, and bank guarantee paperwork.",
     dataIngested: "Annual accounts, Peppol cashflow velocity, payroll tax projections.",
     privacyLegalBasis: "Mandated accountant proxy via KBC Partner Hub API.",
     conversionLift: "Zero CAC (Warm recommendation by trusted advisor)"
@@ -1567,7 +1567,7 @@ export const ENTERPRISE_SCALABILITY_MATRIX = [
     typicalTriggers: "M&A Buyout of BioGhent Labs (€3.2M), LOI Escrow, D&O Risk",
     kbcCoreProducts: "Acquisition advice, Straight Loans, Valuation advice, Directors' liability",
     annualLtvEur: "€95,000+ / yr",
-    automationLevel: "Corporate Syndicate with Board itsme® QES"
+    automationLevel: "Corporate OneClick with Board itsme® QES"
   }
 ];
 
@@ -1581,7 +1581,7 @@ export const HIGH_MARGIN_ECONOMICS = {
       amountEur: "€67.50 one-time",
       description: "Passive billboard listing. Partner pays small referral lead fee; KBC captures zero recurring margin."
     },
-    newSyndicateCoreValue: {
+    newOneClickCoreValue: {
       label: "New Model: Core Banking & Insurance Lifetime Value",
       amountEur: "€12,850 5-Year LTV",
       description: "Captures primary operating accounts, high-margin mandatory insurance premiums, and net interest margin on lending."
@@ -1607,7 +1607,7 @@ export const HIGH_MARGIN_ECONOMICS = {
       marginPct: "Low-cost core deposits & liquidity stickiness"
     },
     {
-      productCategory: "Syndicate Orchestration Take-Rate",
+      productCategory: "OneClick Platform Take-Rate",
       products: "Cross-partner API execution fee (split with partner net CAC savings)",
       annualGrossMargin: "€520 / year",
       marginPct: "4.5% pure platform fee with zero balance sheet risk"
@@ -1631,8 +1631,8 @@ export const JURY_TRIPLE_WIN_DATA = {
       timeToResolution: "18 to 25 business days",
       kbcRevenue: "€67.50 one-off referral fee (near zero recurring margin)"
     },
-    newSyndicateModel: {
-      title: "KBC OneClick Syndicate (Ecosystem 2.0)",
+    newOneClickModel: {
+      title: "KBC OneClick (Ecosystem 2.0)",
       description: "Autonomous multi-partner chaining under KBC's white-label umbrella. Ingests commercial leases & payroll signals, issuing core high-margin insurance and credit in 1 click.",
       conversionRate: "34.2% (+2,340% increase)",
       cacForPartner: "€0 (Zero cold acquisition cost)",
@@ -1671,7 +1671,7 @@ export const JURY_TRIPLE_WIN_DATA = {
     }
   ],
   kbcCommercialViability: {
-    syndicateTakeRate: "4.5% B2B Syndicate Orchestration Fee (pure platform margin)",
+    oneClickPlatformRate: "4.5% B2B OneClick Platform Fee (pure platform margin)",
     averageBasketExpansion: "+€2,850 ARR per active SME",
     churnReduction: "-68% SME attrition due to primary operating account and multi-product lock-in",
     crossSellAttachment: "4.2 products activated on Day 1",
@@ -1679,8 +1679,8 @@ export const JURY_TRIPLE_WIN_DATA = {
   },
   roiCalculatorDefaults: {
     smeUserBase: 125000,
-    annualSyndicateTriggersPerSme: 3.2,
-    avgSyndicateBasketEur: 2850,
+    annualOneClickTriggersPerSme: 3.2,
+    avgOneClickBasketEur: 2850,
     kbcOrchestrationFeePct: 4.5,
     partnerCacSavedEur: 410
   }

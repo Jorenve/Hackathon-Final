@@ -1,13 +1,18 @@
-// Algorithmic Confidence & Mathematical Deduction Models
-// Demonstrates how Kate's confidence score accumulates over time from raw data
-// and ONLY prompts the entrepreneur once confidence exceeds the 85% threshold.
+// Dynamic Algorithmic Confidence & Mathematical Deduction Calculator
+// Computes confidence directly from live telemetry evidence signals rather than static constants.
+export const computeModelConfidence = (signals, isTimeAdvanced = false) => {
+  if (!signals || !Array.isArray(signals)) return { score: 0, points: [] };
+  const totalPoints = signals.reduce((acc, sig) => {
+    const pts = isTimeAdvanced ? sig.advanced.points : sig.baseline.points;
+    return acc + pts;
+  }, 0);
+  return Number(totalPoints.toFixed(1));
+};
 
-export const ALGORITHM_THINKING_MODELS = {
+export const RAW_ALGORITHM_THINKING_MODELS = {
   STAGE_1_FIRST_HIRE: {
     modelName: "Workforce & Payroll Prediction Model",
     thresholdScore: 85.0,
-    baselineConfidence: 42.0,
-    advancedConfidence: 96.4,
     confidenceFormula: "Confidence = (0.35 × Recurrence_Months) + (0.30 × Margin_Loss_Severity) + (0.20 × Subsidy_Certainty) + (0.15 × Employee_Retention_Risk)",
 
     dataSourcesEvaluated: [
@@ -82,15 +87,13 @@ export const ALGORITHM_THINKING_MODELS = {
     scenariosCompared: [
       { option: "Do Nothing (Keep Interim Agency)", cost12Months: "€63,360", riskScore: "High (No Staff Retention)", kbcMargin: "€0" },
       { option: "Traditional Manual Onboarding", cost12Months: "€46,320 + 28 hours admin", riskScore: "Medium (Late Dimona fines)", kbcMargin: "Low" },
-      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€43,220 (-€17,040 savings)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€1,820 (Accident policy + account)" }
+      { option: "KBC OneClick (Recommended)", cost12Months: "€43,220 (-€17,040 savings)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€1,820 (Accident policy + account)" }
     ]
   },
 
   STAGE_2_OFFICE_SPACE: {
     modelName: "Commercial Space & Lease Underwriting Model",
     thresholdScore: 85.0,
-    baselineConfidence: 44.0,
-    advancedConfidence: 96.8,
     confidenceFormula: "Confidence = (0.35 × DSCR_Coverage) + (0.30 × Lease_Contract_Certainty) + (0.20 × EPC_Compliance) + (0.15 × Tenant_Liability_Fit)",
 
     dataSourcesEvaluated: [
@@ -165,15 +168,13 @@ export const ALGORITHM_THINKING_MODELS = {
     scenariosCompared: [
       { option: "Traditional Manual Bank Deposit & Paperwork", cost12Months: "€8,400 locked cash + 6 weeks delay", riskScore: "High (Lost Summer Contracts)", kbcMargin: "€0" },
       { option: "Unsecured Personal Loan & External Broker", cost12Months: "€85k @ 7.8% (€6,630/yr interest)", riskScore: "High Personal Asset Exposure", kbcMargin: "Low" },
-      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€85k @ 3.65% (-€7,200/mo net gain)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€14,600 (Loan interest + property policy)" }
+      { option: "KBC OneClick (Recommended)", cost12Months: "€85k @ 3.65% (-€7,200/mo net gain)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€14,600 (Loan interest + property policy)" }
     ]
   },
 
   STAGE_3_FLEET_SCALING: {
     modelName: "Fleet Electrification & TCO Prediction Model",
     thresholdScore: 85.0,
-    baselineConfidence: 46.0,
-    advancedConfidence: 97.4,
     confidenceFormula: "Confidence = (0.40 × Courier_Outsource_Bleed) + (0.30 × EV_TCO_Advantage) + (0.20 × Flemish_Green_Grants) + (0.10 × Depot_Grid_Fit)",
 
     dataSourcesEvaluated: [
@@ -248,7 +249,7 @@ export const ALGORITHM_THINKING_MODELS = {
     scenariosCompared: [
       { option: "Do Nothing (Keep Outsourcing Couriers)", cost12Months: "€76,800/yr courier bleed + LEZ surcharges", riskScore: "High (Delivery Delays)", kbcMargin: "€0" },
       { option: "Buy Second-Hand Diesel Vans (Cash)", cost12Months: "€45,000 cash drain + €14,000 diesel + LEZ fines", riskScore: "Severe Regulatory Risk", kbcMargin: "Low" },
-      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€0 upfront cash (-€29,400/yr net savings)", riskScore: "Zero (KBC Autolease backed)", kbcMargin: "€24,800 (Asset lease + fleet policy)" }
+      { option: "KBC OneClick (Recommended)", cost12Months: "€0 upfront cash (-€29,400/yr net savings)", riskScore: "Zero (KBC Autolease backed)", kbcMargin: "€24,800 (Asset lease + fleet policy)" }
     ]
   },
 
@@ -331,7 +332,7 @@ export const ALGORITHM_THINKING_MODELS = {
     scenariosCompared: [
       { option: "Do Nothing (Keep Interim Agency)", cost12Months: "€63,360", riskScore: "High (No Staff Retention)", kbcMargin: "€0" },
       { option: "Traditional Manual Onboarding", cost12Months: "€46,320 + 28 hours admin", riskScore: "Medium (Late Dimona fines)", kbcMargin: "Low" },
-      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€43,220 (-€17,040 savings)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€1,820 (Accident policy + account)" }
+      { option: "KBC OneClick (Recommended)", cost12Months: "€43,220 (-€17,040 savings)", riskScore: "Zero (Pre-underwritten)", kbcMargin: "€1,820 (Accident policy + account)" }
     ]
   },
 
@@ -414,7 +415,7 @@ export const ALGORITHM_THINKING_MODELS = {
     scenariosCompared: [
       { option: "Status Quo (Keep Diesel Fleet)", cost12Months: "€578,400 fuel + €62,000 carbon tax", riskScore: "High Regulatory Risk", kbcMargin: "€420" },
       { option: "Piecemeal External EV Leasing", cost12Months: "€492,000 + 4 vendor KYC portals", riskScore: "Moderate (Delayed delivery)", kbcMargin: "€0" },
-      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€441,600 (-€198,800 total benefit)", riskScore: "Zero (KBC Autolease pre-funded)", kbcMargin: "€28,400 (Lease interest + industrial policy)" }
+      { option: "KBC OneClick (Recommended)", cost12Months: "€441,600 (-€198,800 total benefit)", riskScore: "Zero (KBC Autolease pre-funded)", kbcMargin: "€28,400 (Lease interest + industrial policy)" }
     ]
   },
 
@@ -497,7 +498,7 @@ export const ALGORITHM_THINKING_MODELS = {
     scenariosCompared: [
       { option: "Do Nothing (Wait for Debtors to Pay)", cost12Months: "Company Default / Bankruptcy in 14 days", riskScore: "Catastrophic", kbcMargin: "Loss of Account" },
       { option: "Traditional Commercial Court Lawsuit", cost12Months: "€14,000 lawyer fees + 14 month delay", riskScore: "Severe Insolvency", kbcMargin: "€0" },
-      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "€0 upfront out-of-pocket (Debtor pays fees)", riskScore: "Resolved (Payroll secured in 140ms)", kbcMargin: "€14,800 (Factoring margin + credit line)" }
+      { option: "KBC OneClick (Recommended)", cost12Months: "€0 upfront out-of-pocket (Debtor pays fees)", riskScore: "Resolved (Payroll secured in 140ms)", kbcMargin: "€14,800 (Factoring margin + credit line)" }
     ]
   },
 
@@ -580,10 +581,24 @@ export const ALGORITHM_THINKING_MODELS = {
     scenariosCompared: [
       { option: "Do Nothing (Keep Cash in Term Deposit)", cost12Months: "€204,000/yr capital drag; competitor acquired by foreign fund", riskScore: "Opportunity Loss", kbcMargin: "€18,000" },
       { option: "Traditional Investment Bank Mandate", cost12Months: "€180,000 retainer + 6 month advisory lag", riskScore: "Target Leaked to Market", kbcMargin: "€0" },
-      { option: "KBC 1-Click Syndicate (Recommended)", cost12Months: "1-Click LOI Escrow Lock; €2.2M facility ready", riskScore: "Pre-underwritten (60-day exclusive)", kbcMargin: "€95,000 (Senior debt margin + D&O)" }
+      { option: "KBC OneClick (Recommended)", cost12Months: "1-Click LOI Escrow Lock; €2.2M facility ready", riskScore: "Pre-underwritten (60-day exclusive)", kbcMargin: "€95,000 (Senior debt margin + D&O)" }
     ]
   }
 };
+
+// Dynamically compute baselineConfidence and advancedConfidence from the evidenceSignals
+export const ALGORITHM_THINKING_MODELS = Object.keys(RAW_ALGORITHM_THINKING_MODELS).reduce((acc, key) => {
+  const model = RAW_ALGORITHM_THINKING_MODELS[key];
+  const calculatedBaseline = computeModelConfidence(model.evidenceSignals, false);
+  const calculatedAdvanced = computeModelConfidence(model.evidenceSignals, true);
+  
+  acc[key] = {
+    ...model,
+    baselineConfidence: calculatedBaseline,
+    advancedConfidence: calculatedAdvanced
+  };
+  return acc;
+}, {});
 
 // Aliases for the 3-Chapter Lifecycle Story
 ALGORITHM_THINKING_MODELS.STARTER = ALGORITHM_THINKING_MODELS.STAGE_1_FIRST_HIRE;

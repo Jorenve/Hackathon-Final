@@ -317,13 +317,14 @@ export default function App() {
         isOpen={isDecisionEngineModalOpen}
         onClose={() => setIsDecisionEngineModalOpen(false)}
         selectedCompanyKey={selectedCompanyKey}
+        isTimeAdvanced={isTimeAdvanced}
       />
 
       {/* Persistent Bottom Bar with Hackathon Quick Guide */}
       <footer className="bg-slate-900 border-t border-slate-800/80 py-3 px-4 text-xs text-slate-400">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center space-x-2">
-            <span className="font-bold text-white">KBC OneClick Syndicate</span>
+            <span className="font-bold text-white">KBC OneClick</span>
             <span>•</span>
             <span className="text-kbc-sky">Tectonic Hackathon Finals Proof of Concept</span>
             <span>•</span>

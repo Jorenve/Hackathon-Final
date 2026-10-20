@@ -1,5 +1,5 @@
 /**
- * KBC OneClick Syndicate: Autonomous Financial Decision Engine
+ * KBC OneClick OneClick: Autonomous Financial Decision Engine
  * 
  * Production-grade deterministic algorithmic model designed for KBC Bank & Insurance.
  * Evaluates real-time banking telemetry (Peppol e-invoices, account debits, DSCR, NBB ratings)
@@ -84,7 +84,7 @@ export const KBC_DECISION_ENGINE = {
         scoreStatutory: Number(scoreStatutory.toFixed(1)),
         totalConfidence: Number(accumulatedConfidence.toFixed(1)),
         thresholdScore: KBC_DECISION_ENGINE.actionConfidenceThreshold,
-        decisionState: thresholdExceeded ? "TRIGGER_PROACTIVE_SYNDICATE" : "SILENT_OBSERVATION"
+        decisionState: thresholdExceeded ? "TRIGGER_PROACTIVE_ONECLICK" : "SILENT_OBSERVATION"
       },
       riskOfficerNotes: isAdvanced 
         ? "Pre-approved under KBC Risk Framework. Permanent staff transition under PC 302 reduces operating risk and ensures statutory compliance under Belgian Labor Code Art. 49."
@@ -158,7 +158,7 @@ export const KBC_DECISION_ENGINE = {
         scoreLiability: Number(scoreLiability.toFixed(1)),
         totalConfidence: Number(accumulatedConfidence.toFixed(1)),
         thresholdScore: KBC_DECISION_ENGINE.actionConfidenceThreshold,
-        decisionState: thresholdExceeded ? "TRIGGER_PROACTIVE_SYNDICATE" : "SILENT_OBSERVATION"
+        decisionState: thresholdExceeded ? "TRIGGER_PROACTIVE_ONECLICK" : "SILENT_OBSERVATION"
       },
       financialOfficerNotes: isAdvanced
         ? "Pre-approved under KBC Automated SME Lending Framework. DSCR of 1.49x exceeds the 1.35x covenant. Capital adequacy risk-weighted at 75% under CRR SME supporting factor."
@@ -229,7 +229,7 @@ export const KBC_DECISION_ENGINE = {
         scoreGrid: Number(scoreGrid.toFixed(1)),
         totalConfidence: Number(accumulatedConfidence.toFixed(1)),
         thresholdScore: KBC_DECISION_ENGINE.actionConfidenceThreshold,
-        decisionState: thresholdExceeded ? "TRIGGER_PROACTIVE_SYNDICATE" : "SILENT_OBSERVATION"
+        decisionState: thresholdExceeded ? "TRIGGER_PROACTIVE_ONECLICK" : "SILENT_OBSERVATION"
       },
       treasuryOfficerNotes: isAdvanced
         ? "High-quality asset-backed financing. High residual value on refrigerated electric commercial vehicles. Enhances KBC's ESG green loan portfolio while capturing full fleet commercial insurance."

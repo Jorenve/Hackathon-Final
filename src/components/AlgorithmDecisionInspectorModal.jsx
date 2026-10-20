@@ -57,9 +57,16 @@ export default function AlgorithmDecisionInspectorModal({
             <div>
               <div className="flex items-center space-x-2">
                 <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
-                  KBC Autonomous Decision Engine v{KBC_DECISION_ENGINE.version}
+                  KBC Autonomous Decision Engine
                 </span>
                 <span className="text-slate-500 text-xs">• Live Deterministic Evaluation</span>
+                <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border ${
+                  isTimeAdvanced 
+                    ? 'bg-emerald-950 text-emerald-300 border-emerald-500/50' 
+                    : 'bg-amber-950/70 text-amber-300 border-amber-500/40'
+                }`}>
+                  {isTimeAdvanced ? '⚡ Fast-Forward Telemetry (High Confidence)' : '🟢 Present Baseline (Silent Monitoring)'}
+                </span>
               </div>
               <h2 className="text-xl font-black text-white mt-0.5">
                 Multi-Branch Algorithmic Decision Architecture
@@ -231,7 +238,7 @@ export default function AlgorithmDecisionInspectorModal({
                 Branch Efficiency & Relationship Manager Value (Anouk De Smet)
               </span>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Why local branch managers love OneClick Syndicate: Relationship managers spend 65% of their time on bureaucratic paperwork (commercial lease guarantee forms, manual Dimona checks, insurance questionnaires). Kate eliminates all back-office friction, allowing the manager to act as a trusted growth advisor.
+                Why local branch managers love OneClick: Relationship managers spend 65% of their time on bureaucratic paperwork (commercial lease guarantee forms, manual Dimona checks, insurance questionnaires). Kate eliminates all back-office friction, allowing the manager to act as a trusted growth advisor.
               </p>
             </div>
 

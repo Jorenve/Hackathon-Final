@@ -1,4 +1,4 @@
-# 🚀 KBC OneClick Syndicate — AI Ecosystem Orchestrator
+# 🚀 KBC OneClick — AI Ecosystem Orchestrator
 **Tectonic Hackathon Finals Proof of Concept (PoC) for KBC Bank & Insurance (Belgium)**
 
 > **Guiding Question:** *How can KBC help customers achieve important life and business goals before they realise they need help?*
@@ -6,11 +6,11 @@
 ---
 
 ## 🌟 Executive Summary & Pivot to Core High-Margin Inflections
-Instead of forcing entrepreneurs to browse KBC's flat catalog of **229 isolated products and third-party partners**, **KBC OneClick Syndicate** detects emerging business intent from raw invoice and document signals (even from **non-clients**!), chains ecosystem partners together "under the hood" inside a **KBC Blackbox**, and lets entrepreneurs execute complex legal, government, staffing, and financial workflows with **one click** (itsme® / KBC Sign).
+Instead of forcing entrepreneurs to browse KBC's flat catalog of **229 isolated products and third-party partners**, **KBC OneClick** detects emerging business intent from raw invoice and document signals (even from **non-clients**!), chains ecosystem partners together "under the hood" inside a **KBC Blackbox**, and lets entrepreneurs execute complex legal, government, staffing, and financial workflows with **one click** (itsme® / KBC Sign).
 
 ### 💡 Where is the Benefit for KBC Bigger? (High Margins vs. Referral Fees)
 * **The Old Thinking:** Earn a minor, one-time 4.5% referral commission (~€67.50).
-* **The Syndicate Engine:** Chaining partners is a **Trojan Horse to sell KBC's highest-margin core products**:
+* **The OneClick Engine:** Chaining partners is a **Trojan Horse to sell KBC's highest-margin core products**:
   1. **Primary Operating Accounts:** Captures sticky SME operating balances (`KBC Business PRO Account`).
   2. **Statutory High-Margin Insurances:** Mandatory `Occupational accident insurance` (68% net margin), `Office and building insurance` (72% net margin), and `Business liability insurance`.
   3. **SME Credit & Net Interest Margin:** `Investment loan` (5.4% fixed margin) and `Business Budget Facility` (payroll buffer).
@@ -23,7 +23,7 @@ Instead of forcing entrepreneurs to browse KBC's flat catalog of **229 isolated 
 KBC captures non-clients at the exact moment they experience a business milestone via 3 automated rails:
 1. **The Peppol & E-Invoicing Counterparty Graph:** KBC processes ~42% of B2B transactions in Flanders. When an existing KBC commercial client (e.g., landlord, raw material supplier) issues an invoice or deposit request to a non-KBC SME over Peppol/Billit, KBC's network graph triangulates the non-client recipient.
 2. **Kate "Smart Contract & Lease Auditor" (Open Web Tool):** Non-clients drag & drop a draft commercial lease, employment agreement, or supplier contract into Kate's free web tool for an instant legal/rent audit.
-3. **Accountant API Bridge (Silverfin / Yuki / Odoo):** Certified Belgian accountants trigger the syndicate directly inside their accounting software (`Send an expense claim to your accountant`), eliminating manual notary and social secretariat paperwork.
+3. **Accountant API Bridge (Silverfin / Yuki / Odoo):** Certified Belgian accountants trigger OneClick directly inside their accounting software (`Send an expense claim to your accountant`), eliminating manual notary and social secretariat paperwork.
 4. **1-Click Onboarding via itsme®:** Identity is verified and the `KBC Business PRO Account` is created on the fly in 120 seconds.
 
 ---
@@ -58,7 +58,7 @@ The 3-layer architecture scales seamlessly from 1 sole proprietor to 500+ FTE mi
    - Non-Client Ingestion indicator explaining how Lucas was acquired via Peppol/Kate.
    - Proactive Kate 1-Click Action Card with guaranteed net financial outcome.
    - In-place Domino progress execution with real-time checkmarks and confetti.
-   - Expandable **"Under the Hood: View Verified Syndicate & Partner Controls"** drawer with 1-tap partner swapping (e.g. swap Liantis for Acerta or Securex).
+   - Expandable **"Under the Hood: View Verified OneClick & Partner Controls"** drawer with 1-tap partner swapping (e.g. swap Liantis for Acerta or Securex).
    - Sequential story advancement: Milestone 1 ➔ Fast-Forward 6 Months ➔ Milestone 2.
 
 2. **View 2: Under-the-Hood "Domino API" (Architecture View)**
