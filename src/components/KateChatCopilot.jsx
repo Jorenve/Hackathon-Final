@@ -193,15 +193,15 @@ export default function KateChatCopilot({
 
       {/* Main Body (Collapsed or Expanded) */}
       {!isMinimized && (
-        <div className="flex flex-col h-[480px]">
+        <div className="flex flex-col h-[400px] sm:h-[480px]">
           
           {/* Chat Messages Log */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 bg-slate-950/70">
+          <div className="flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 sm:space-y-3.5 bg-slate-950/70">
             {messages.map((msg) => (
               <div key={msg.id} className="space-y-2">
-                <div className={`flex items-start space-x-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className={`flex items-start space-x-2 sm:space-x-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {msg.sender === 'kate' && (
-                    <div className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 ${
+                    <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 ${
                       msg.isAlert 
                         ? 'bg-amber-400 text-slate-950 ring-2 ring-amber-300 animate-bounce' 
                         : 'bg-kbc-sky/20 border border-kbc-sky/40 text-kbc-sky'
@@ -210,7 +210,7 @@ export default function KateChatCopilot({
                     </div>
                   )}
 
-                  <div className={`p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed max-w-[85%] ${
+                  <div className={`p-2.5 sm:p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed max-w-[88%] sm:max-w-[85%] ${
                     msg.isSuccess 
                       ? 'bg-emerald-950/80 border border-emerald-500/60 text-emerald-200 shadow-md'
                       : msg.isAlert
@@ -225,21 +225,21 @@ export default function KateChatCopilot({
 
                 {/* Baseline Fast-Forward Action Shortcut (When viewed before advancing time) */}
                 {msg.isBaselinePrompt && onAdvanceTime && (
-                  <div className="pl-9 pt-1 animate-fadeIn">
+                  <div className="pl-7 sm:pl-9 pt-1 animate-fadeIn">
                     <button
                       onClick={onAdvanceTime}
-                      className="py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-400 to-kbc-sky hover:from-kbc-sky hover:to-cyan-400 text-slate-950 font-black text-xs shadow-md shadow-cyan-400/20 hover:scale-[1.02] active:scale-98 transition-all flex items-center space-x-2"
+                      className="py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl bg-gradient-to-r from-cyan-400 to-kbc-sky hover:from-kbc-sky hover:to-cyan-400 text-slate-950 font-black text-xs shadow-md shadow-cyan-400/20 hover:scale-[1.02] active:scale-98 transition-all flex items-center space-x-2"
                     >
-                      <FastForward className="w-4 h-4 fill-current" />
-                      <span>Fast-Forward Time to Milestone ({currentChapter.timeline})</span>
+                      <FastForward className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current flex-shrink-0" />
+                      <span>Fast-Forward Time ({currentChapter.timeline})</span>
                     </button>
                   </div>
                 )}
 
                 {/* Interactive Action Shortcuts directly attached to Kate's proposal (After event trigger) */}
                 {msg.hasActions && (
-                  <div className="pl-9 pr-2 space-y-2 animate-fadeIn">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                  <div className="pl-7 sm:pl-9 pr-1 sm:pr-2 space-y-2 animate-fadeIn">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 pt-1">
                       
                       {/* Action 1: Execute 1-Click Domino Flow via itsme® approval */}
                       <button
@@ -248,10 +248,10 @@ export default function KateChatCopilot({
                           setShowItsmeModal(true);
                         }}
                         disabled={executionState.isRunning || executionState.isComplete}
-                        className="py-2 px-3 rounded-xl bg-gradient-to-r from-orange-500 via-amber-400 to-emerald-400 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-xs shadow-md shadow-orange-500/20 flex items-center justify-center space-x-1.5 transition-all transform hover:scale-[1.01] active:scale-98 disabled:opacity-50"
+                        className="py-2 px-2.5 sm:px-3 rounded-xl bg-gradient-to-r from-orange-500 via-amber-400 to-emerald-400 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-xs shadow-md shadow-orange-500/20 flex items-center justify-center space-x-1.5 transition-all transform hover:scale-[1.01] active:scale-98 disabled:opacity-50"
                       >
                         <Lock className="w-3.5 h-3.5 flex-shrink-0" />
-                        <span>
+                        <span className="truncate">
                           {executionState.isRunning 
                             ? `Executing Domino (${executionState.currentStepIndex + 1}/4)...` 
                             : executionState.isComplete 
@@ -263,37 +263,37 @@ export default function KateChatCopilot({
                       {/* Action 2: Inspect Marketing & Algo Parameters */}
                       <button
                         onClick={onOpenMarketingModal}
-                        className="py-2 px-3 rounded-xl bg-slate-850 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 font-bold text-xs flex items-center justify-center space-x-1.5 transition-all"
+                        className="py-2 px-2.5 sm:px-3 rounded-xl bg-slate-850 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 font-bold text-xs flex items-center justify-center space-x-1.5 transition-all"
                       >
-                        <Target className="w-3.5 h-3.5" />
-                        <span>Marketing & Algo Parameters</span>
+                        <Target className="w-3.5 h-3.5 flex-shrink-0" />
+                        <span className="truncate">Marketing & Algo Parameters</span>
                       </button>
 
                       {/* Action 3: Focus on Full Dashboard */}
                       <button
                         onClick={onFocusDashboard}
-                        className="py-2 px-3 rounded-xl bg-slate-850 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold text-xs flex items-center justify-center space-x-1.5 transition-all"
+                        className="py-2 px-2.5 sm:px-3 rounded-xl bg-slate-850 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold text-xs flex items-center justify-center space-x-1.5 transition-all"
                       >
-                        <Layers className="w-3.5 h-3.5 text-slate-400" />
-                        <span>Inspect Live Dashboard & Domino</span>
+                        <Layers className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+                        <span className="truncate">Inspect Live Dashboard & Domino</span>
                       </button>
 
                       {/* Action 4: Advance to Next Lifecycle Chapter */}
                       {activeChapterIndex < totalChapters - 1 ? (
                         <button
                           onClick={() => onSelectChapter(activeChapterIndex + 1)}
-                          className="py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-emerald-400 border border-emerald-500/40 font-bold text-xs flex items-center justify-center space-x-1.5 transition-all"
+                          className="py-2 px-2.5 sm:px-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-emerald-400 border border-emerald-500/40 font-bold text-xs flex items-center justify-center space-x-1.5 transition-all"
                         >
-                          <span>Next Chapter: Stage {activeChapterIndex + 2}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <span className="truncate">Next Chapter: Stage {activeChapterIndex + 2}</span>
+                          <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
                         </button>
                       ) : (
                         <button
                           onClick={() => onSelectChapter(0)}
-                          className="py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-400 hover:text-white border border-slate-700 font-semibold text-xs flex items-center justify-center space-x-1.5 transition-all"
+                          className="py-2 px-2.5 sm:px-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-400 hover:text-white border border-slate-700 font-semibold text-xs flex items-center justify-center space-x-1.5 transition-all"
                         >
-                          <RotateCcw className="w-3.5 h-3.5" />
-                          <span>Restart Story from Stage 1</span>
+                          <RotateCcw className="w-3.5 h-3.5 flex-shrink-0" />
+                          <span className="truncate">Restart Story from Stage 1</span>
                         </button>
                       )}
 

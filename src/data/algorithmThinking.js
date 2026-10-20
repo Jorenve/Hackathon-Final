@@ -28,7 +28,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Persistent Interim Usage",
         weight: "35%",
         baseline: { active: false, status: "Pending (Only 1 invoice)", points: 8 },
-        advanced: { active: true, status: "Verified (4 months continuous)", points: 35 },
+        advanced: { active: true, status: "Verified (4 months continuous)", points: 33.4 },
         detail: "Single interim invoice could be temporary sick-leave replacement. 4 months confirms permanent staffing need."
       },
       {
@@ -36,7 +36,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Gross Margin Leakage > €1,000/mo",
         weight: "30%",
         baseline: { active: false, status: "Under Evaluation (€240 leak)", points: 10 },
-        advanced: { active: true, status: "Exceeded (€1,420/mo overpayment)", points: 30 },
+        advanced: { active: true, status: "Exceeded (€1,420/mo overpayment)", points: 29.0 },
         detail: "Current 2.2x interim markup creates €17,040 annual profit drain compared to PC 302 direct hire."
       },
       {
@@ -44,7 +44,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Flemish First-Hire Subsidy Qualification",
         weight: "20%",
         baseline: { active: true, status: "Preliminary Match", points: 14 },
-        advanced: { active: true, status: "100% Pre-Validated with VLAIO", points: 20 },
+        advanced: { active: true, status: "100% Pre-Validated with VLAIO", points: 19.5 },
         detail: "Confirms entity BE 0849.201.884 has 0 prior ONSS employees, guaranteeing €3,100 grant exemption."
       },
       {
@@ -52,7 +52,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Legal Labor Liability Exposure",
         weight: "15%",
         baseline: { active: false, status: "Low Risk (Covered by agency)", points: 10 },
-        advanced: { active: true, status: "Urgent (Uninsured Transition Risk)", points: 15 },
+        advanced: { active: true, status: "Urgent (Uninsured Transition Risk)", points: 14.5 },
         detail: "Direct hiring without immediate Day-1 Occupational Accident Insurance breaches Belgian Labor Code Art. 49."
       }
     ],
@@ -109,7 +109,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Cashflow Debt Service Coverage > 2.0x",
         weight: "35%",
         baseline: { active: false, status: "Under Evaluation (1.4x DSCR)", points: 12 },
-        advanced: { active: true, status: "Surpassed (2.4x Coverage on €2.8k Rent)", points: 35 },
+        advanced: { active: true, status: "Surpassed (2.4x Coverage on €2.8k Rent)", points: 34.0 },
         detail: "Sustained €36,400 monthly inflow guarantees safe service of rent and €85,000 equipment loan."
       },
       {
@@ -117,7 +117,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Dok Noord 9-Year Lease Draft Verified",
         weight: "30%",
         baseline: { active: false, status: "Searching Premises (Immoscoop)", points: 10 },
-        advanced: { active: true, status: "Commercial Lease Draft OCR Verified", points: 30 },
+        advanced: { active: true, status: "Commercial Lease Draft OCR Verified", points: 28.5 },
         detail: "Extracted landlord IBAN, rent amount (€2,800/mo), and €8,400 deposit clause from PDF."
       },
       {
@@ -125,7 +125,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "EPC Label B & Food Hygiene Compliance",
         weight: "20%",
         baseline: { active: true, status: "Preliminary Building Audit", points: 14 },
-        advanced: { active: true, status: "De Immowinkel EPC B Confirmed", points: 20 },
+        advanced: { active: true, status: "De Immowinkel EPC B Confirmed", points: 19.8 },
         detail: "Premises meets Flemish energy efficiency standard for food preparation kitchens."
       },
       {
@@ -133,7 +133,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Mandatory Tenant Fire & Water Liability",
         weight: "15%",
         baseline: { active: false, status: "Uninsured Commercial Lease", points: 8 },
-        advanced: { active: true, status: "KBC Office & Building Policy Pre-Bound", points: 15 },
+        advanced: { active: true, status: "KBC Office & Building Policy Pre-Bound", points: 14.5 },
         detail: "Belgian commercial lease law mandates tenant damage coverage before key handover."
       }
     ],
@@ -190,7 +190,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Outsourced Courier Spend > €5,000/mo",
         weight: "40%",
         baseline: { active: false, status: "Under Threshold (€2,800/mo)", points: 15 },
-        advanced: { active: true, status: "Critical Margin Drain (€6,400/mo)", points: 40 },
+        advanced: { active: true, status: "Critical Margin Drain (€6,400/mo)", points: 38.6 },
         detail: "Outsourcing 45 daily drops creates €76,800 annual courier bleed compared to in-house fleet."
       },
       {
@@ -198,7 +198,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Electric TCO Arbitrage vs. Diesel Courier",
         weight: "30%",
         baseline: { active: false, status: "TCO Breakeven", points: 15 },
-        advanced: { active: true, status: "+€2,450/mo Net Cash Savings", points: 30 },
+        advanced: { active: true, status: "+€2,450/mo Net Cash Savings", points: 29.2 },
         detail: "Off-peak depot charging at €0.14/kWh eliminates diesel fuel surcharges and Ghent LEZ fines."
       },
       {
@@ -206,7 +206,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Flemish Clean Power Grants (€12,600)",
         weight: "20%",
         baseline: { active: true, status: "Preliminary Eligibility", points: 10 },
-        advanced: { active: true, status: "100% Pre-Validated with Klimaatfonds", points: 20 },
+        advanced: { active: true, status: "100% Pre-Validated with Klimaatfonds", points: 19.4 },
         detail: "Confirms €4,200 per commercial EV van, directly credited against vehicle acquisition cost."
       },
       {
@@ -214,7 +214,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Dok Noord 22kW Charging Feasibility",
         weight: "10%",
         baseline: { active: false, status: "Grid Inquiry Sent", points: 6 },
-        advanced: { active: true, status: "Luminus MoveSmart Hardware Pre-Approved", points: 10 },
+        advanced: { active: true, status: "Luminus MoveSmart Hardware Pre-Approved", points: 9.6 },
         detail: "Luminus MoveSmart confirmed overnight depot charging for 3 e-Transits without sub-station upgrade."
       }
     ],
@@ -273,7 +273,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Persistent Interim Usage",
         weight: "35%",
         baseline: { active: false, status: "Pending (Only 1 invoice)", points: 8 },
-        advanced: { active: true, status: "Verified (4 months continuous)", points: 35 },
+        advanced: { active: true, status: "Verified (4 months continuous)", points: 33.4 },
         detail: "Single interim invoice could be temporary sick-leave replacement. 4 months confirms permanent staffing need."
       },
       {
@@ -281,7 +281,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Gross Margin Leakage > €1,000/mo",
         weight: "30%",
         baseline: { active: false, status: "Under Evaluation (€240 leak)", points: 10 },
-        advanced: { active: true, status: "Exceeded (€1,420/mo overpayment)", points: 30 },
+        advanced: { active: true, status: "Exceeded (€1,420/mo overpayment)", points: 29.0 },
         detail: "Current 2.2x interim markup creates €17,040 annual profit drain compared to PC 302 direct hire."
       },
       {
@@ -289,7 +289,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Flemish First-Hire Subsidy Qualification",
         weight: "20%",
         baseline: { active: true, status: "Preliminary Match", points: 14 },
-        advanced: { active: true, status: "100% Pre-Validated with VLAIO", points: 20 },
+        advanced: { active: true, status: "100% Pre-Validated with VLAIO", points: 19.5 },
         detail: "Confirms entity BE 0849.201.884 has 0 prior ONSS employees, guaranteeing €3,100 grant exemption."
       },
       {
@@ -297,7 +297,7 @@ export const RAW_ALGORITHM_THINKING_MODELS = {
         label: "Legal Labor Liability Exposure",
         weight: "15%",
         baseline: { active: false, status: "Low Risk (Covered by agency)", points: 10 },
-        advanced: { active: true, status: "Urgent (Uninsured Transition Risk)", points: 15 },
+        advanced: { active: true, status: "Urgent (Uninsured Transition Risk)", points: 14.5 },
         detail: "Direct hiring without immediate Day-1 Occupational Accident Insurance breaches Belgian Labor Code Art. 49."
       }
     ],

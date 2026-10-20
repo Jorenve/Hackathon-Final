@@ -173,74 +173,101 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6">
             
             {/* Top Story Progression & Quick Navigation */}
-            <div className="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs shadow-lg">
-              <div className="flex items-center space-x-3 min-w-0">
-                <div className="p-2.5 rounded-xl bg-gradient-to-br from-kbc-blue to-kbc-sky text-white shadow-md flex-shrink-0">
-                  <Sparkles className="w-5 h-5 text-white" />
+            <div className="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border border-slate-800 rounded-2xl p-3 sm:p-4 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs shadow-lg">
+              <div className="flex items-start sm:items-center space-x-2.5 sm:space-x-3 min-w-0">
+                <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-br from-kbc-blue to-kbc-sky text-white shadow-md flex-shrink-0 mt-0.5 sm:mt-0">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <div className="min-w-0">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-cyan-400 font-extrabold uppercase tracking-wider text-[11px] whitespace-nowrap">
-                      {currentChapter.badge}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center space-x-1.5 sm:space-x-2 flex-wrap">
+                    <span className="text-cyan-400 font-extrabold uppercase tracking-wider text-[10px] sm:text-[11px] whitespace-nowrap">
+                      Stage {currentChapterIndex + 1}: {currentChapter.badge}
                     </span>
-                    <span className="text-slate-500 font-mono whitespace-nowrap">• {currentChapter.timeline}</span>
+                    <span className="text-slate-500 font-mono text-[10px] sm:text-xs whitespace-nowrap">• {currentChapter.timeline}</span>
                   </div>
-                  <h3 className="font-black text-white text-base truncate">
-                    Ghent Craft Foods BV: {currentChapter.title}
+                  <h3 className="font-black text-white text-xs sm:text-base leading-snug break-words mt-0.5">
+                    <span className="text-slate-400 font-normal">Ghent Craft Foods BV: </span>
+                    <span>{currentChapter.title}</span>
                   </h3>
-                  <p className="text-slate-300 text-xs mt-0.5 truncate max-w-xl">
+                  <p className="text-slate-300 text-[10px] sm:text-xs mt-0.5 leading-relaxed break-words">
                     {currentChapter.subtitle}
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2 flex-wrap flex-shrink-0 justify-end">
-                <button
-                  onClick={() => setIsMarketingModalOpen(true)}
-                  className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-amber-950/80 hover:bg-amber-900 text-amber-300 font-bold border border-amber-600/50 shadow transition-all whitespace-nowrap"
-                  title="Briefing for Marketing Judges: Data Parameters & 5-Year LTV Model"
-                >
-                  <Target className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>Marketing Parameters</span>
-                </button>
-
-                <button
-                  onClick={() => setIsKateChatOpen(!isKateChatOpen)}
-                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl font-bold border transition-all whitespace-nowrap ${
-                    isKateChatOpen 
-                      ? 'bg-kbc-sky text-slate-950 border-white shadow-md' 
-                      : isTimeAdvanced
-                      ? 'bg-emerald-950 text-emerald-300 border-emerald-500 animate-pulse shadow-md'
-                      : 'bg-slate-800 text-cyan-300 border-slate-700'
-                  }`}
-                >
-                  <MessageSquare className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>
-                    {isKateChatOpen 
-                      ? 'Hide Kate Copilot' 
-                      : isTimeAdvanced 
-                      ? '🔔 Kate Found Opportunity!' 
-                      : 'Open Kate Copilot'}
-                  </span>
-                </button>
-
-                {currentChapterIndex < lifecycleStory.chapters.length - 1 ? (
-                  <button
-                    onClick={() => handleSelectChapter(currentChapterIndex + 1)}
-                    className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-400 to-kbc-sky text-slate-950 font-bold shadow-md hover:scale-[1.02] transition-all whitespace-nowrap"
-                  >
-                    <span>Next Chapter</span>
-                    <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
-                  </button>
-                ) : (
+              {/* Responsive Story Actions: Stage Switcher on Mobile & Action Buttons */}
+              <div className="flex items-center gap-2 flex-wrap justify-between sm:justify-end border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-800/80">
+                
+                {/* Mobile Stage Selector Dropdown/Chips */}
+                <div className="flex lg:hidden items-center space-x-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-[11px]">
+                  <span className="text-slate-500 px-1 font-bold">Stage:</span>
                   <button
                     onClick={() => handleSelectChapter(0)}
-                    className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-semibold border border-slate-700 transition-all whitespace-nowrap"
+                    className={`px-2 py-1 rounded-lg font-bold transition-all ${
+                      currentChapterIndex === 0 ? 'bg-amber-950 text-amber-300 border border-amber-600' : 'text-slate-400'
+                    }`}
                   >
-                    <RotateCcw className="w-3.5 h-3.5 flex-shrink-0" />
-                    <span>Restart Story</span>
+                    1
                   </button>
-                )}
+                  <button
+                    onClick={() => handleSelectChapter(1)}
+                    className={`px-2 py-1 rounded-lg font-bold transition-all ${
+                      currentChapterIndex === 1 ? 'bg-blue-950 text-cyan-300 border border-cyan-500' : 'text-slate-400'
+                    }`}
+                  >
+                    2
+                  </button>
+                  <button
+                    onClick={() => handleSelectChapter(2)}
+                    className={`px-2 py-1 rounded-lg font-bold transition-all ${
+                      currentChapterIndex === 2 ? 'bg-emerald-950 text-emerald-300 border border-emerald-600' : 'text-slate-400'
+                    }`}
+                  >
+                    3
+                  </button>
+                </div>
+
+                <div className="flex items-center space-x-1.5 sm:space-x-2">
+                  <button
+                    onClick={() => setIsKateChatOpen(!isKateChatOpen)}
+                    className={`flex items-center space-x-1 sm:space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl font-bold border transition-all whitespace-nowrap text-xs ${
+                      isKateChatOpen 
+                        ? 'bg-kbc-sky text-slate-950 border-white shadow-md' 
+                        : isTimeAdvanced
+                        ? 'bg-emerald-950 text-emerald-300 border-emerald-500 animate-pulse shadow-md'
+                        : 'bg-slate-800 text-cyan-300 border-slate-700'
+                    }`}
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 flex-shrink-0" />
+                    <span>
+                      {isKateChatOpen 
+                        ? 'Hide Kate' 
+                        : isTimeAdvanced 
+                        ? '🔔 Opportunity!' 
+                        : 'Kate'}
+                    </span>
+                  </button>
+
+                  {currentChapterIndex < lifecycleStory.chapters.length - 1 ? (
+                    <button
+                      onClick={() => handleSelectChapter(currentChapterIndex + 1)}
+                      className="flex items-center space-x-1 px-2.5 sm:px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-400 to-kbc-sky text-slate-950 font-bold shadow-md hover:scale-[1.02] active:scale-98 transition-all whitespace-nowrap text-xs"
+                    >
+                      <span className="hidden xs:inline sm:inline">Next Stage</span>
+                      <span className="xs:hidden sm:hidden">Next</span>
+                      <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleSelectChapter(0)}
+                      className="flex items-center space-x-1 px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white font-semibold border border-slate-700 transition-all whitespace-nowrap text-xs"
+                    >
+                      <RotateCcw className="w-3.5 h-3.5 flex-shrink-0" />
+                      <span>Restart</span>
+                    </button>
+                  )}
+                </div>
+
               </div>
             </div>
 

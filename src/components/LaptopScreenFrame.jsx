@@ -128,31 +128,31 @@ export default function LaptopScreenFrame({
 
           </div>
 
-          {/* Sub-Header Navigation Tabs Bar (Scrollable on mobile) */}
-          <div className="bg-slate-900/90 border-b border-slate-800 px-3 sm:px-6 py-2 flex items-center justify-between text-xs text-slate-400 overflow-x-auto min-w-full">
-            <div className="flex items-center space-x-4 sm:space-x-6 whitespace-nowrap min-w-max">
-              <span className="text-kbc-sky font-bold flex items-center space-x-1.5 border-b-2 border-kbc-sky pb-1">
-                <LayoutDashboard className="w-3.5 h-3.5" />
-                <span>OneClick Feed</span>
-              </span>
-              <span className="hover:text-white cursor-pointer flex items-center space-x-1.5 pb-1">
-                <CreditCard className="w-3.5 h-3.5" />
-                <span>Accounts & Cash</span>
-              </span>
-              <span className="hover:text-white cursor-pointer flex items-center space-x-1.5 pb-1">
-                <FileText className="w-3.5 h-3.5" />
-                <span>Peppol & Invoices</span>
-              </span>
-              <span className="hover:text-white cursor-pointer flex items-center space-x-1.5 pb-1 hidden sm:flex">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Insurances</span>
-              </span>
-            </div>
+            {/* Sub-Header Navigation Tabs Bar (Scrollable on mobile) */}
+            <div className="bg-slate-900/90 border-b border-slate-800 px-3 sm:px-6 py-2 flex items-center justify-between text-xs text-slate-400 overflow-x-auto min-w-0 scrollbar-none">
+              <div className="flex items-center space-x-3.5 sm:space-x-6 whitespace-nowrap flex-shrink-0 text-[11px] sm:text-xs">
+                <span className="text-kbc-sky font-bold flex items-center space-x-1.5 border-b-2 border-kbc-sky pb-1">
+                  <LayoutDashboard className="w-3.5 h-3.5" />
+                  <span>OneClick Feed</span>
+                </span>
+                <span className="hover:text-white cursor-pointer flex items-center space-x-1.5 pb-1">
+                  <CreditCard className="w-3.5 h-3.5" />
+                  <span>Accounts & Cash</span>
+                </span>
+                <span className="hover:text-white cursor-pointer flex items-center space-x-1.5 pb-1">
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>Peppol & Invoices</span>
+                </span>
+                <span className="hover:text-white cursor-pointer flex items-center space-x-1.5 pb-1 hidden sm:flex">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Insurances</span>
+                </span>
+              </div>
 
-            <div className="hidden md:flex items-center space-x-2 text-[11px] text-slate-400 font-mono whitespace-nowrap pl-4">
-              <span>Branch: <strong className="text-slate-200">{company.relationshipManager}</strong></span>
+              <div className="hidden md:flex items-center space-x-2 text-[11px] text-slate-400 font-mono whitespace-nowrap pl-4 flex-shrink-0">
+                <span>Branch: <strong className="text-slate-200">{company.relationshipManager}</strong></span>
+              </div>
             </div>
-          </div>
 
           {/* Main Dashboard Screen Area */}
           <div className="flex-1 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 p-3 sm:p-6 overflow-y-auto">

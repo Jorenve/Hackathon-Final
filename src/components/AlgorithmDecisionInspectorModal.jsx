@@ -89,50 +89,50 @@ export default function AlgorithmDecisionInspectorModal({
         <div className="bg-slate-950 p-1.5 rounded-2xl border border-slate-800 flex items-center overflow-x-auto gap-1">
           <button
             onClick={() => setActiveStakeholder('financial')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
+            className={`flex-1 py-2 px-2.5 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
               activeStakeholder === 'financial'
                 ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-md font-extrabold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900'
             }`}
           >
-            <DollarSign className="w-3.5 h-3.5" />
-            <span>1. Financial & Treasury Lens</span>
+            <DollarSign className="w-3.5 h-3.5 flex-shrink-0" />
+            <span>1. Financial & Treasury</span>
           </button>
 
           <button
             onClick={() => setActiveStakeholder('risk')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
+            className={`flex-1 py-2 px-2.5 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
               activeStakeholder === 'risk'
                 ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-md font-extrabold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900'
             }`}
           >
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>2. Credit Risk & Underwriting Lens</span>
+            <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+            <span>2. Credit Risk</span>
           </button>
 
           <button
             onClick={() => setActiveStakeholder('branch')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
+            className={`flex-1 py-2 px-2.5 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
               activeStakeholder === 'branch'
                 ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-md font-extrabold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900'
             }`}
           >
-            <Building2 className="w-3.5 h-3.5" />
-            <span>3. Branch Relationship Mgr (Kouter)</span>
+            <Building2 className="w-3.5 h-3.5 flex-shrink-0" />
+            <span>3. Branch RM</span>
           </button>
 
           <button
             onClick={() => setActiveStakeholder('marketing')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
+            className={`flex-1 py-2 px-2.5 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center space-x-1.5 whitespace-nowrap ${
               activeStakeholder === 'marketing'
                 ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-md font-extrabold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900'
             }`}
           >
-            <TrendingUp className="w-3.5 h-3.5" />
-            <span>4. Marketing & Growth Lens</span>
+            <TrendingUp className="w-3.5 h-3.5 flex-shrink-0" />
+            <span>4. Marketing</span>
           </button>
         </div>
 
