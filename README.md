@@ -1,4 +1,4 @@
-# 🚀 KBC OneClick — AI Ecosystem Orchestrator
+# 🚀 KBC OneClick — Ecosystem Orchestrator
 **Tectonic Hackathon Finals Proof of Concept (PoC) for KBC Bank & Insurance (Belgium)**
 
 > **Guiding Question:** *How can KBC help customers achieve important life and business goals before they realise they need help?*
@@ -9,67 +9,62 @@
 Instead of forcing entrepreneurs to browse KBC's flat catalog of **229 isolated products and third-party partners**, **KBC OneClick** detects emerging business intent from raw invoice and document signals (even from **non-clients**!), chains ecosystem partners together "under the hood" inside a **KBC Blackbox**, and lets entrepreneurs execute complex legal, government, staffing, and financial workflows with **one click** (itsme® / KBC Sign).
 
 ### 💡 Where is the Benefit for KBC Bigger? (High Margins vs. Referral Fees)
-* **The Old Thinking:** Earn a minor, one-time 4.5% referral commission (~€67.50).
-* **The OneClick Engine:** Chaining partners is a **Trojan Horse to sell KBC's highest-margin core products**:
+* **The Old Thinking:** Earn a minor, one-time referral commission (~€35–€60).
+* **The OneClick Engine:** Partner chaining serves as an organic Trojan Horse to sell **KBC's highest-margin core products**:
   1. **Primary Operating Accounts:** Captures sticky SME operating balances (`KBC Business PRO Account`).
-  2. **Statutory High-Margin Insurances:** Mandatory `Occupational accident insurance` (68% net margin), `Office and building insurance` (72% net margin), and `Business liability insurance`.
-  3. **SME Credit & Net Interest Margin:** `Investment loan` (5.4% fixed margin) and `Business Budget Facility` (payroll buffer).
-  4. **5-Year Customer Lifetime Value (LTV):** Increases from €67.50 to **€12,850+ per SME**.
+  2. **Statutory High-Margin Insurances:** Mandatory `Occupational accident insurance` (61.2% combined ratio), `Office and building insurance`, and `Corporate fleet insurance`.
+  3. **SME Credit & Net Interest Margin:** `Investment loan` (1.85% net interest margin spread), `Rental guarantee in escrow`, and `Asset leasing` via KBC Autolease.
+  4. **5-Year Customer Lifetime Value (LTV):** Increases from ~€50 to **€9,850 – €24,800+ per SME**.
 
 ---
 
-## 📡 Attracting Non-Clients: How KBC Gets Data Without Existing Accounts
+## 📖 The Continuous Entrepreneurial Story: Ghent Craft Foods BV
+Follow founder Lucas De Clercq across 3 scaling chapters:
 
-KBC captures non-clients at the exact moment they experience a business milestone via 3 automated rails:
-1. **The Peppol & E-Invoicing Counterparty Graph:** KBC processes ~42% of B2B transactions in Flanders. When an existing KBC commercial client (e.g., landlord, raw material supplier) issues an invoice or deposit request to a non-KBC SME over Peppol/Billit, KBC's network graph triangulates the non-client recipient.
-2. **Kate "Smart Contract & Lease Auditor" (Open Web Tool):** Non-clients drag & drop a draft commercial lease, employment agreement, or supplier contract into Kate's free web tool for an instant legal/rent audit.
-3. **Accountant API Bridge (Silverfin / Yuki / Odoo):** Certified Belgian accountants trigger OneClick directly inside their accounting software (`Send an expense claim to your accountant`), eliminating manual notary and social secretariat paperwork.
-4. **1-Click Onboarding via itsme®:** Identity is verified and the `KBC Business PRO Account` is created on the fly in 120 seconds.
+### Chapter 1: First Permanent Hire (Small SME • 1–2 FTEs)
+* **Signal Ingested:** 4 consecutive monthly interim agency invoices from NOWJOBS (€5,280/mo).
+* **Algorithmic Finding:** Inefficiency detected. Switching to a permanent employee under Joint Committee PC 302 saves **€1,420/month** and secures a **€3,100 VLAIO grant**.
+* **KBC Core Revenue:** Statutory KBC Occupational Accident Insurance (€1,820/yr).
+* **Chained Partners:** Liantis Social Secretariat, eBox Dimona IN, Vlaamse Overheid VLAIO.
 
----
+### Chapter 2: Dok Noord Commercial Office & Kitchen (Middle Growth • 3–10 FTEs)
+* **Signal Ingested:** Commercial lease deed draft (€2,800/mo) + kitchen equipment quote (€85,000).
+* **Algorithmic Finding:** Debt Service Coverage Ratio ($DSCR = 1.49x \ge 1.35x$) pre-approves automated commercial lending.
+* **KBC Core Revenue:** 3-month Rental Guarantee Escrow (€8,400 locked), €85,000 Fit-Out Investment Loan (3.65% fixed), Office & Building Property Insurance (€2,450/yr).
+* **Chained Partners:** De Immowinkel EPC compliance, Setle green renovation audit.
 
-## 🎯 Two Universal Core Life Inflection Milestones
-
-### 1. Milestone 1: "The First Commercial Workspace / Studio Lease" (Attracting Non-Clients)
-* **The Unseen Signal:** Ingests a draft 9-year commercial lease (`Handelshuurovereenkomst Korenmarkt 14, Gent`) or landlord deposit invoice via Peppol/Kate.
-* **The Friction:** Landlord requires a 3-month rental deposit (€6,300), building fire insurance, commercial liability, lease registration with the Belgian tax office (FOD Financiën), and €15,000 fit-out financing.
-* **The 1-Click Solution:** Kate pre-assembles the digital `Rental guarantee`, auto-binds `Office and building insurance`, files mandatory lease registration via `eBox`, and disburses a €15,000 `Investment loan` into a newly opened `KBC Business PRO Account`.
-
-### 2. Milestone 2: "Hiring the Very First Permanent Employee" (6 Months Later)
-* **The Unseen Signal:** Analyzes consecutive monthly interim invoices (>€5,200/mo on NOWJOBS/interim) in `E-invoicing - Billit`. Lucas is ready to hire Sarah (Head Chef) permanently, saving €1,420/month.
-* **The Friction:** Belgian labor law strictly mandates RSZ/ONSS employer registration, immediate Dimona IN filing, a contracted Social Secretariat (Liantis/Acerta), and mandatory `Occupational accident insurance` before minute one.
-* **The 1-Click Solution:** Kate auto-binds statutory `Occupational accident insurance`, enrolls with the Social Secretariat (Liantis/Acerta - swappable!), dispatches instant Dimona IN to the government, claims the €3,100 Flemish Region wage subsidy (VLAIO), and opens a `Business Budget Facility`.
-
----
-
-## 🏢 Enterprise & Big Company Scalability
-
-The 3-layer architecture scales seamlessly from 1 sole proprietor to 500+ FTE mid-market corporates:
-* **Growing SME (2 - 15 FTEs):** 1st Employee, Factoring overdue invoices, Equipment leasing, Vehicle fleet.
-* **Mid-Market Corporate (15 - 100 FTEs):** Fleet EV transition (`Car Loan Plus`, `KBC Employee Mobility - MoveSmart`), factory lease (`Industrial property insurance`), multi-currency FX hedging (`Go&Deal Pro`).
-* **Large Enterprise (100 - 500+ FTEs):** Supply chain bank guarantees (`International bank guarantees`), import finance (`Documentary credit for imports`), multi-entity liquidity pooling (`Cash pooling`, `ComFin Touch`).
+### Chapter 3: EV Fleet Scaling (Scaling Enterprise • 10–35 FTEs)
+* **Signal Ingested:** Third-party courier invoices surging to €6,400/month.
+* **Algorithmic Finding:** In-housing 3 electric delivery vans yields **+€2,450/month net TCO savings** and unlocks **€12,600** in Flemish clean logistics subsidies.
+* **KBC Core Revenue:** €160k KBC Car Loan Plus / Asset Leasing + Commercial Fleet Insurance.
+* **Chained Partners:** MoveSmart smart charging depot installation, Luminus commercial power.
 
 ---
 
-## 📱 Three Interactive Views in the Application
+## 🧠 Autonomous Algorithmic Decision Engine
+The platform includes an authentic deterministic decision engine ([`src/services/kbcDecisionEngine.js`](./src/services/kbcDecisionEngine.js)):
+* **Dynamic Multi-Factor Confidence Scoring:** Evaluates invoice recurrence, margin loss severity, subsidy certainty, and statutory liability.
+* **Silent Passive Observation:** Below the **85% threshold**, Kate remains quiet to prevent alert fatigue.
+* **Action Threshold ($\ge 85\%$):** Triggers proactive conversational notification once corroborating evidence confirms business need.
+* **Multi-Branch Stakeholder Inspection:**
+  * **Treasury & Finance:** Net interest margin spreads and insurance combined ratios.
+  * **Credit Risk Underwriting:** $DSCR \ge 1.35x$, CRR Basel III SME factor (0.7619), and Belgian Labor Code Art. 49 compliance.
+  * **Branch Managers:** 88% reduction in paperwork; 140ms digital onboarding via itsme® and eBox.
+  * **Marketing:** Zero-CAC customer acquisition via Peppol B2B invoice streams.
 
-1. **View 1: Customer Mobile Experience (One Action at a Time)**
-   - Smartphone shell in KBC Navy (`#003366`) and Cyan (`#00AEEF`).
-   - Non-Client Ingestion indicator explaining how Lucas was acquired via Peppol/Kate.
-   - Proactive Kate 1-Click Action Card with guaranteed net financial outcome.
-   - In-place Domino progress execution with real-time checkmarks and confetti.
-   - Expandable **"Under the Hood: View Verified OneClick & Partner Controls"** drawer with 1-tap partner swapping (e.g. swap Liantis for Acerta or Securex).
-   - Sequential story advancement: Milestone 1 ➔ Fast-Forward 6 Months ➔ Milestone 2.
+---
 
-2. **View 2: Under-the-Hood "Domino API" (Architecture View)**
-   - Interactive visual node graph with live simulated JSON webhook payloads.
-   - Dedicated tab: **Non-Client Ingestion & Peppol XML Data Rails**.
-   - Dedicated tab: **Big Company & Mid-Market Scalability Matrix**.
-
-3. **View 3: Partner & KBC Triple-Win Dashboard (Jury Pitch View)**
-   - High-Margin Core Products vs. Flat Commission breakdown (€12,850 LTV vs €67.50).
-   - Zero-CAC non-client acquisition metrics (€820 saved per commercial account).
-   - Interactive ROI & Market Scale Calculator for the Belgian SME market.
+## 📱 Interactive Views & Features
+1. **Customer Experience:**
+   * Responsive laptop and native mobile views.
+   * Kate Copilot as a conversational abstraction layer with direct **itsme® QES authentication**.
+   * Live animated domino visualizer tracking multi-partner execution in sub-second latency.
+   * Swappable partners (Liantis $\leftrightarrow$ Acerta $\leftrightarrow$ Securex).
+2. **Under-the-Hood Engine:**
+   * Mathematical confidence accumulator and deduction logic visualizer.
+   * Non-client acquisition graph and enterprise scalability matrix.
+3. **Jury Triple-Win View:**
+   * Commercial economics model and interactive ROI calculator for Belgian SME portfolios.
 
 ---
 
@@ -82,8 +77,8 @@ The 3-layer architecture scales seamlessly from 1 sole proprietor to 500+ FTE mi
 
 ### To run locally:
 ```bash
-cd kbc-syndicate-app
+cd kbc-oneclick-app
 npm install
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser or scan the QR code on your mobile phone.
